@@ -358,3 +358,69 @@ body * {
 	position: relative;
 
 }
+
+/* светофор */
+
+.traffic-light {
+
+	background-color: #fff;
+	height: 210px;
+	width: 80px;
+	
+	border-radius: 25px;
+	border: 1px solid #b5b5b5;
+	padding: 3px;
+
+}
+
+.traffic-light>div {
+
+	background-color: #000;
+	position: relative;
+	
+	height: 202px;
+	width: 72px;
+	
+	border-radius: 25px;
+	
+}
+
+.traffic-light .red-light {
+    background: #fc000f;
+    background-image: radial-gradient(brown,transparent);
+    background-size: 3px 3px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    position: absolute;
+    top: 18px;
+    left: 16px;
+    box-shadow: 0 0 20px #111 inset, 0 0 10px #fc000f;
+}
+
+.traffic-light .yellow-light {
+    background: yellow;
+    background-image: radial-gradient(orange,transparent);
+    background-size: 3px 3px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    position: absolute;
+    top: 80px;
+    left: 16px;
+    box-shadow: 0 0 20px #111 inset, 0 0 10px yellow;
+}
+
+.traffic-light .green-light {
+    background: green;
+    background-image: radial-gradient(lime,transparent);
+    background-size: 3px 3px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    position: absolute;
+    top: 140px;
+    left: 16px;
+    box-shadow: 0 0 20px #111 inset, 0 0 10px lime;
+}
+
