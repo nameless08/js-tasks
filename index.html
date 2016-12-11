@@ -1,0 +1,660 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>jsTasker</title>
+		
+	<meta name="description" content='<?echo $descr_page;?>' />
+	<meta name="keywords" content='<?echo $keywords_page;?>' />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+	<link rel="icon" href="favicon.ico" type="image/x-icon"> 
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
+	<!-- <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet"> -->
+
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/main.css">
+
+	<script src="js/modernizr-2.8.3.min.js"></script>
+
+
+</head>
+
+<body>
+
+
+<div class="j-task">
+	
+	<h1>Задачи по JavaScript</h1>
+
+	<!-- /////////////////////////////// ЛЕКЦИЯ №1 Введение ////////////////////// -->
+	<div class="j-task__line">
+		<div data-trigger="1" class="j-task__title cf">
+			<h2>Лекция №1. Введение</h2>
+			<div class="j-task__stat cf">
+				<span class="j-quantity">Задач: <i class="color-red">4</i>/<i class="color-green">4</i></span>
+				<span class="j-led j-led_p100"></span>
+			</div>
+		</div>
+		<div data-hide="1" class="j-task-hide">
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">1.</div>
+					<div class="j-task__accessory">Числа</div>
+					<div class="j-task__conditions">Даны два ненулевых числа. Найти их сумму, разность, произведение и частное.</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="lec_1_Task_1(); return false" class='ph-button ph-btn-blue'>Запустить решение</a>
+					<a href="https://jsfiddle.net/Nameless08/zmtmxz2q/2/" target="_blank" class='ph-button ph-btn-green' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">2.</div>
+					<div class="j-task__accessory">Числа</div>
+					<div class="j-task__conditions">Даны два числа. Найти среднее арифметическое их квадратов и среднее арифметическое их модулей.(Math.pow Math.abs)</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="lec_1_Task_2(); return false" class='ph-button ph-btn-blue'>Запустить решение</a>
+					<a href="https://jsfiddle.net/Nameless08/0segt83h/2/" target="_blank" class='ph-button ph-btn-green' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">3.</div>
+					<div class="j-task__accessory">Числа, условия</div>
+					<div class="j-task__conditions">Скорость лодке в стоячей воде V км/ч, скорость течения реки U км/ч (U < V). Время движения лодки по озеру T1 ч, а по реке (против течения) — T2 ч. Определить путь S, пройденный лодкой.</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="lec_1_Task_3(); return false" class='ph-button ph-btn-blue'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-green' target="_blank" title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">4.</div>
+						<div class="j-task__accessory">Числа, условия</div>
+						<div class="j-task__conditions">Даны координаты (как целые от 1 до 8) двух различных полей шахматной доски. Если конь за один ход может перейти с одного поля на другое, вывести логическое значение True, в противном случае вывести значение False.
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="lec_1_Task_4(); return false" class='ph-button ph-btn-blue'>Запустить решение</a>
+					<a href="https://jsfiddle.net/Nameless08/arrwjkrt/" target="_blank" class='ph-button ph-btn-green' target="_blank" title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+		</div><!-- /j-task-hide -->
+	</div><!-- /j-task__line -->
+
+
+	<!-- /////////////////////////////// ЛЕКЦИЯ №2 Продолжение введения ////////////////////// -->
+	<div class="j-task__line">
+		<div data-trigger="2" class="j-task__title cf">
+			<h2>Лекция №2. Продолжение введения</h2>
+			<div class="j-task__stat cf">
+				<span class="j-quantity">Задач: <i class="color-red">6</i>/<i class="color-green">6</i></span>
+				<span class="j-led j-led_p100"></span>
+			</div>
+		</div>
+		<div data-hide="2" class="j-task-hide">
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">1.</div>
+					<div class="j-task__accessory">Цикл</div>
+					<div class="j-task__conditions">Используя цикл while и введенную с клавиатуры строку отобразить её наоборот. ( Привет =>тевирП )</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="lec_2_Task_1(); return false" class='ph-button ph-btn-blue'>Запустить решение</a>
+					<a href="https://jsfiddle.net/Nameless08/ojwrod0o/" target="_blank" class='ph-button ph-btn-green' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">2.</div>
+					<div class="j-task__accessory">Циклы, системы счисления</div>
+					<div class="j-task__conditions">Перевести число, введенное с клавиатуры в систему счисления по основанию 3, отобразить цифры наоборот и перевести обратно в десятичную систему из троичной. '29' =>1002 => 2001 => '55'</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="lec_2_Task_2(); return false"  class='ph-button ph-btn-blue'>Запустить решение</a>
+					<a href="https://jsfiddle.net/Nameless08/ofon9hv0/" target="_blank" class='ph-button ph-btn-green' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">3.</div>
+					<div class="j-task__accessory">Циклы</div>
+					<div class="j-task__conditions">Посчитать сумму чисел от 1 до «введенного с клавиатуры неотрицательного числа».</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="lec_2_Task_3(); return false" class='ph-button ph-btn-blue'>Запустить решение</a>
+					<a href="https://jsfiddle.net/Nameless08/en17jxrf/" target="_blank" class='ph-button ph-btn-green' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">4.</div>
+					<div class="j-task__accessory">Условие switch</div>
+					<div class="j-task__conditions">Написать Switch, который принимает на вход значение от 1 до 7 и отображает день недели. Если выбраны выходные (if) написать "Ура!"<br>
+   					1 – "Понедельник"<br>
+   					6 – "Ура! Суббота"</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="lec_2_Task_4(); return false" class='ph-button ph-btn-blue'>Запустить решение</a>
+					<a href="https://jsfiddle.net/Nameless08/bo54zqhu/1/" target="_blank" class='ph-button ph-btn-green' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">5.</div>
+					<div class="j-task__accessory">Циклы</div>
+					<div class="j-task__conditions">Написать меню игры, в котором принимаются команды: 'start' , 'options' и 'exit'. После ввода команды выполняется действие команды и ожидается следующая (кроме exit ).<br>
+   						При 'start' выведите "начало", при 'options' => "опции", при 'exit' => "выход". При вводе других команд напишите – "команда не распознана" </div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="lec_2_Task_5(); return false" class='ph-button ph-btn-blue'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-green' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">6.</div>
+					<div class="j-task__accessory">Циклы</div>
+					<div class="j-task__conditions">Используя форматирование вывода вывести числа от [начального] (ввод с клавиатуры) до [конечного] в виде [n] колонок.
+						<img class="j-task__img" src="img/img-number.jpg" alt="">** Учесть длину числа, используемую при выводе
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="lec_2_Task_6(); return false" class='ph-button ph-btn-blue'>Запустить решение</a>
+					<a href="https://jsfiddle.net/Nameless08/zpbvqLo6/3/" target="_blank" class='ph-button ph-btn-green' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+		</div><!-- /j-task-hide -->
+	</div><!-- /j-task__line -->
+
+	<!-- /////////////////////////////// ЛЕКЦИЯ №3 Основы ////////////////////// -->
+	<div class="j-task__line">
+		<div data-trigger="3" class="j-task__title cf">
+			<h2>Лекция №3. Основы</h2>
+			<div class="j-task__stat cf">
+				<span class="j-quantity">Задач: <i class="color-red">5</i>/<i class="color-green">5</i></span>
+				<span class="j-led j-led_p100"></span>
+			</div>
+		</div>
+		<div data-hide="3" class="j-task-hide">
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">1.</div>
+					<div class="j-task__accessory">Массивы</div>
+					<div class="j-task__conditions">Реализовать отображение остатка боеприпасов в пистолете, у которого в абойме N патронов + перезарядку. Абойма – массив из N ячеек. Выстрел реализовать через pop/shift Выстрел или перезарядка – prompt.(пустой)<br><br> * Аналогично реализовать автомат c M патронами в обойме, который стреляет очередью по 3 патрона. Выстрелов не должно быть больше, чем патронов в обойме</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="lec_3_Task_1(); return false" class='ph-button ph-btn-blue'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-green' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">2.</div>
+					<div class="j-task__accessory">Массивы</div>
+					<div class="j-task__conditions">Заполнить массив заданным количеством городов. (Задается с клавиатуры). При вводе очередного названия города показывает, сколько раз нужно ввести город</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="lec_3_Task_2(); return false" class='ph-button ph-btn-blue'>Запустить решение</a>
+					<a href="https://jsfiddle.net/Nameless08/erosuze4/" class='ph-button ph-btn-green' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">3.</div>
+					<div class="j-task__accessory">Массивы</div>
+					<div class="j-task__conditions">Заполнить массив произвольным количеством городов. Когда будет введена пустая строка остановить ввод и вывести информацию о городах.</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="lec_3_Task_3(); return false" class='ph-button ph-btn-blue'>Запустить решение</a>
+					<a href="https://jsfiddle.net/Nameless08/7xjuenja/" class='ph-button ph-btn-green' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">4.</div>
+					<div class="j-task__accessory">Поиск простых чисел</div>
+					<div class="j-task__conditions">Реализовать "Решето́ Эратосфе́на": 
+						<ul class="j-task__list">
+							<li>Выписать подряд все целые числа от двух до n (2, 3, 4, …, n).</li>
+							<li>Пусть переменная p изначально равна двум — первому простому числу.</li>
+							<li>Зачеркнуть в списке числа кратные p: 2p, 3p, 4p, …).</li>
+							<li> Найти первое незачёркнутое число в списке, большее чем p, и присвоить значению переменной p это число.</li>
+							<li>Повторять шаги 3 и 4, пока возможно.</li>
+						</ul>
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="lec_3_Task_4(); return false" class='ph-button ph-btn-blue'>Запустить решение</a>
+					<a href="https://jsfiddle.net/Nameless08/xo4d9ykc/" target="_blank" class='ph-button ph-btn-green' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">5.</div>
+					<div class="j-task__accessory">Циклы</div>
+					<div class="j-task__conditions">
+						<ol class="j-task__list_number">
+							<li>Составить таблицу значений функции y = 5 – x*x/2 на отрезке [-5; 5] с шагом 0.5</li>
+							<li>Факториал числа представляет собой произведение всех натуральных чисел от 1 до этого числа... По введенному числу найти его факториал.</li>
+							<li>Заполнить массив выбранного размера числами Фибоначчи Fn=F(n-1)+F(n-2); //F1=1;F2=1</li>
+							<li>Найти максимальный и минимальный элемент массива и показать его индекс.</li>
+							<li>Массив заполнить случайными целыми числами Math.floor(Math.random()*(max - min + 1)) + min;</li>
+						</ol>
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="lec_3_Task_5(); return false" class="ph-button ph-btn-blue">Запустить решение</a>
+					<a href="https://jsfiddle.net/Nameless08/xo4d9ykc/1/" target="_blank" class="ph-button ph-btn-green" title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+		</div><!-- /j-task-hide -->
+	</div><!-- /j-task__line -->
+
+
+	<!-- /////////////////////////////// ЛЕКЦИЯ №4 Объекты ////////////////////// -->
+	<div class="j-task__line">
+		<div data-trigger="4" class="j-task__title cf">
+			<h2>Лекция №4. Объекты</h2>
+			<div class="j-task__stat cf">
+				<span class="j-quantity">Задач: <i class="color-red">5</i>/<i class="color-green">0</i></span>
+				<span class="j-led j-led_null"></span>
+			</div>
+		</div>
+		<div data-hide="4" class="j-task-hide">
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">1.</div>
+					<div class="j-task__accessory">Объекты</div>
+					<div class="j-task__conditions">Создать объекта "боец", у которого есть имя, фамилия и прочие атрибуты, а также атрибут "рюкзак", в который нужно положить всё необходимое (Определить атрибуты рюкзака). Положить в рюкзак удочку, наживку, леску, грузила и крючки.
+						<ul class="j-task__list">
+							<li>предметы в рюкзаке имеют вес</li>
+							<li>функция/метод, выводящая этот вес</li>
+							<li>метод положить/выбросить в рюкзак</li>
+							<li>количество для одинаковых предметов</li>
+						</ul>
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="" class='ph-button ph-btn-no-act'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-no-act' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">2.</div>
+					<div class="j-task__accessory">Объекты</div>
+					<div class="j-task__conditions">Создать объект "Сматфон" у которого заданы поля: имя, память(hdd), память(ram) и список приложений (имя, hdd, ram)<br><br>
+						Добавить список запущенных приложений.<br>
+						Посчитать потребление памяти (hdd, ram)<br>
+						level **** 
+						<ul class="j-task__list">
+							<li>Возможность устанавливать НОВЫЕ приложения из объекта market (Если хватает памяти+устройство поддерживается[список])</li>
+							<li>Запуск и остановка приложений</li>
+							<li>Удаление приложений и очистка памяти</li>
+						</ul>
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="" class='ph-button ph-btn-no-act'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-no-act' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">3.</div>
+					<div class="j-task__accessory">Рекурсия</div>
+					<div class="j-task__conditions">Посчитать значения факториала числа при помощи функции рекурсивно<br><br>
+						N! = N*(N-1)! , 1! = 1<br><br>
+						Цифры числа записать справа-налево<br><br>
+						//153 => 351<br><br>
+						Определить является ли указанное число степенью заданного числа<br><br>
+						12 , 2 NO<br><br>
+						16 , 2 YES<br><br>
+						* Разложить число на простые множители в порядке возрастания и с учетом кратности<br><br>
+						* J: Палиндром<br><br>
+						Дано слово, состоящее только из строчных латинских букв. Проверьте, является ли это слово палиндромом. Выведите YES или NO. <br><br>
+						radar – yes<br><br>
+						Yes - no<br><br>
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="" class='ph-button ph-btn-no-act'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-no-act' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+		</div><!-- /j-task-hide -->
+	</div><!-- /j-task__line -->
+
+	<!-- /////////////////////////////// ЛЕКЦИЯ №5 Методы, this ////////////////////// -->
+	<div class="j-task__line">
+		<div data-trigger="5" class="j-task__title cf">
+			<h2>Лекция №5. Методы, this</h2>
+			<div class="j-task__stat cf">
+				<span class="j-quantity">Задач: <i class="color-red">5</i>/<i class="color-green">0</i></span>
+				<span class="j-led j-led_null"></span>
+			</div>
+		</div>
+		<div data-hide="5" class="j-task-hide">
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">1.</div>
+					<div class="j-task__accessory">Работа с объектами</div>
+					<div class="j-task__conditions">Сделайте единый getter-setter:<br><br>
+						getbullets() - getter сообщает количество патронов<br>
+						getbullets(amount) – берет патроны.<br>
+						(Код можно использовать из прошлого примера)<br>
+						1.* Расширьте класс воина, чтобы Валера мог:<br>
+						- перезаряжать автомат(если есть чем)<br>
+						- стрелять, пока есть патроны<br>
+						- говорить сколько у него осталось абойм<br>
+						(floor/ceil) на выбор<br>
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="" class='ph-button ph-btn-no-act'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-no-act' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">2.</div>
+					<div class="j-task__accessory">Работа с объектами</div>
+					<div class="j-task__conditions">Взять объект "Сматфон" у которого заданы поля: имя, память(hdd), память(ram) и список приложений (имя, hdd, ram) из 4 лекции.<br><br>
+						- Переписать все его поля на приватные. <br>
+						- дать возможность установить карту памяти.<br>
+						- Сделать “перенос” приложений на карту памяти и обратно.<br>
+						* - Возможность достать карту памяти с сохранением работоспособности приложений на внутренней памяти<br>
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="" class='ph-button ph-btn-no-act'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-no-act' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">3.</div>
+					<div class="j-task__accessory">Работа с объектами</div>
+					<div class="j-task__conditions">Валера в лабиринте<br><br>
+						Написать класс labirintwarrior, <br>
+						Карта, старт и финиш приходят в конструкторе.<br>
+						- боец может перемещаться и бить мечем перед собой(направление движения/поворота)<br>
+						- боец может отобразить карту в радиусе N=5 от себя (* с отображением в HTML)<br>
+						Карта состоит из 3 типов клеток:<br>
+						- проходимые(корридоры)<br>
+						- разбиваемые(двери/коробки)<br>
+						- непроходимые(стены)<br>
+						Нужно пройти лабиринт<br>
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="" class='ph-button ph-btn-no-act'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-no-act' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">4.</div>
+					<div class="j-task__accessory">Работа с объектами</div>
+					<div class="j-task__conditions">Реализовать объект "автомобиль", для которого прописать не менее 10 методов.<br><br>
+						Переменные(объем топлива, масла, температура, вместимость багажника или другие – приватные)<br>
+						Хотя бы 3 метода должны вызывать приватные методы внутри себя.<br>
+						* Сделать движение автомобиля по "карте". <br>
+						- Поворот автомобиля на 90 градусов.<br>
+						- Реализовать инерцию с торможением<br>
+						- Реализовать торможение<br>
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="" class='ph-button ph-btn-no-act'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-no-act' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+		
+		</div><!-- /j-task-hide -->
+	</div><!-- /j-task__line -->
+
+	<!-- /////////////////////////////// ЛЕКЦИЯ №6 RegExp ////////////////////// -->
+	<div class="j-task__line">
+		<div data-trigger="6" class="j-task__title cf">
+			<h2>Лекция №6. RegExp</h2>
+			<div class="j-task__stat cf">
+				<span class="j-quantity">Задач: <i class="color-red">6</i>/<i class="color-green">0</i></span>
+				<span class="j-led j-led_null"></span>
+			</div>
+		</div>
+		<div data-hide="6" class="j-task-hide">
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">1.</div>
+					<div class="j-task__accessory">RegExp</div>
+					<div class="j-task__conditions">Проверить ip адрес. (Формат – четыре числа от 0 до 255 отделенные "." )</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="" class='ph-button ph-btn-no-act'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-no-act' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">2.</div>
+					<div class="j-task__accessory">RegExp</div>
+					<div class="j-task__conditions">Проверить адрес почты, если он может содержать только латинские символы, _ и цифры. При этом должен располагаться на домене mail.ru или gmail.com<br><br>
+						** Располагаться на любом домене, кроме "mailforspam"<br> 
+						Например : hi_@my.perfect.mail.site.ru.com.de 
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="" class='ph-button ph-btn-no-act'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-no-act' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">3.</div>
+					<div class="j-task__accessory">RegExp</div>
+					<div class="j-task__conditions">Взять номера телефонов в произвольном формате и привести к образцу +7 (9XX) XXX – XX – XX
+						Номер состоит из 9 или 10 цифр и разделителей<br><br>
+						*** Разобрать входные данные: 3547868 89211233242 8125532142 +7952-2382978  *7*911*111*11*1*1И прочие. Подробнее о номерах телефонов почитайте в интернете. 
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="" class='ph-button ph-btn-no-act'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-no-act' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">4.</div>
+					<div class="j-task__accessory">RegExp</div>
+					<div class="j-task__conditions">Распарсить ФИО на составляющие части. Учесть, что не у всех людей есть отчество. Написать Фамилию, Имя и Отчество с больших букв, если они с маленьких. </div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="" class='ph-button ph-btn-no-act'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-no-act' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">5.</div>
+					<div class="j-task__accessory">RegExp</div>
+					<div class="j-task__conditions">Задача список покупок Необходимо написать парсер, который из естественной записи формата "одно наименование на строку" составит формализованный список продуктов. <br><br>
+						Пример:<br>
+						Из Получить<br>
+						Сыр 200 г Сыр (0,2 кг.)<br>
+						Помидоры 3 кило  => Помидоры (3 кг.)<br>
+						Сырки – 3 шт. Сырки (3 шт.)Задача 5<br>
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="" class='ph-button ph-btn-no-act'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-no-act' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">6.</div>
+					<div class="j-task__accessory">RegExp</div>
+					<div class="j-task__conditions">Анализатор пароля<br><br>
+						По введенному паролю проверить использование только допустимых символов в пароле (список на Ваш выбор) и оценить его устойчивость.<br>
+						Устойчивость зависит от длины, используемых символов, цифр, РеГиСтрА.<br>
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="" class='ph-button ph-btn-no-act'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-no-act' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+
+			
+		
+		</div><!-- /j-task-hide -->
+	</div><!-- /j-task__line -->
+
+	<!-- /////////////////////////////// ЛЕКЦИЯ №7 DOM ////////////////////// -->
+	<div class="j-task__line">
+		<div data-trigger="6" class="j-task__title cf">
+			<h2>Лекция №7. DOM</h2>
+			<div class="j-task__stat cf">
+				<span class="j-quantity">Задач: <i class="color-red">4</i>/<i class="color-green">0</i></span>
+				<span class="j-led j-led_null"></span>
+			</div>
+		</div>
+		<div data-hide="6" class="j-task-hide">
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">1.</div>
+					<div class="j-task__accessory">DOM</div>
+					<div class="j-task__conditions">Сделать select-option, заполненный при помощи JS, в котором можно выбирать несколько вариантов<br> http://htmlbook.ru/html/select - изучить!
+				</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="" class='ph-button ph-btn-no-act'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-no-act' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">2.</div>
+					<div class="j-task__accessory">DOM</div>
+					<div class="j-task__conditions">Сделать страницу светофор, которая мелькает желтым цветом или постепенно зажигается и затухает<br>
+						http://htmlbook.ru/css/opacity<br>
+						http://javascript.ru/setinterval<br>
+						* Реальный светофор, для которого можно задать время зеленого и красного света.
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="" class='ph-button ph-btn-no-act'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-no-act' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">3.</div>
+					<div class="j-task__accessory">События</div>
+					<div class="j-task__conditions">learn.javascript.ru/introduction-browser-events <br>
+							Спрятать при клике<br>
+							Спрятаться<br>
+							Какие обработчики сработают?<br>
+							Написать обработчик используя this, который меняет фон элемента, по которому прошел клик. Цвета сменяются поочередно.<br>
+							(Не менее 7 цветов в наборе)<br>
+							Повесить обработчик на все выбранные элементы (p,div). Элементы должны быть вложены друг в друга<br>
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="" class='ph-button ph-btn-no-act'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-no-act' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+			<div class="j-task__box">
+				<div class="cf">
+					<div class="j-task__numb">4.</div>
+					<div class="j-task__accessory">События</div>
+					<div class="j-task__conditions">https://learn.javascript.ru/event-bubbling <br>
+						Изучить интерактивные примеры<br>
+						Сделать обработчики погружения, которые модифицирует обработчики всплытия при установленной галочке в checkbox.<br>
+						!!!Вывод только обработчиками всплытия!!!<br>
+						По умолчанию:<br>
+						Привет из (элемент)<br>
+						При галочке<br>
+						(элемент) говорит тебя прощай<br>
+						Скрипт не должен "ломаться"<br>
+					</div>
+				</div>
+				<div class="j-task__panel">
+					<a href="#" onclick="" class='ph-button ph-btn-no-act'>Запустить решение</a>
+					<a href="#" class='ph-button ph-btn-no-act' title="Перейти по ссылке в песочницу с решением">Посмотреть код в песочнице</a>
+				</div>
+			</div><!-- /j-box-task -->
+	
+		</div><!-- /j-task-hide -->
+	</div><!-- /j-task__line -->
+	
+</div><!-- /j-js-tasker -->
+
+<script>
+	
+
+
+</script>
+
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/main.js"></script>
+
+<!-- lecture 1 -->
+<script src="js-solutions/lecture_1/arithmetic.mean.js"></script>
+<script src="js-solutions/lecture_1/chess.elephant.js"></script>
+<script src="js-solutions/lecture_1/simple.calculations.js"></script>
+<script src="js-solutions/lecture_1/speed.boat.js"></script>
+
+<!-- lecture 2 -->
+<script src="js-solutions/lecture_2/turn.word.js"></script>
+<script src="js-solutions/lecture_2/radix.three.js"></script>
+<script src="js-solutions/lecture_2/sum.of.numbers.js"></script>
+<script src="js-solutions/lecture_2/choice.day.week.js"></script>
+<script src="js-solutions/lecture_2/game.menu.js"></script>
+<script src="js-solutions/lecture_2/numbers.in.columns.js"></script>
+
+<!-- lecture 3 -->
+<script src="js-solutions/lecture_3/ammunition.gun.js"></script>
+<script src="js-solutions/lecture_3/number.cities.js"></script>
+<script src="js-solutions/lecture_3/any.number.cities.js"></script>
+<script src="js-solutions/lecture_3/sieveEratosthenes.js"></script>
+<script src="js-solutions/lecture_3/fifth.portion.js"></script>
+
+
+<!-- lecture 4 -->
+
+
+
+
+<!-- lecture 5 -->
+<script src="js-solutions/lecture_5/tanks.js"></script>
+
+
+
+<!-- lecture 6 -->
+
+
+
+<!-- lecture 9 -->
+<!-- <script src="js-solutions/lecture_9/control.object.js"></script> -->
+<!-- <script src="js-solutions/lecture_9/change.colors.js"></script> -->
+
+
+
+
+</body>
+</html>

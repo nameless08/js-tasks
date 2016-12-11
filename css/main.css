@@ -1,0 +1,360 @@
+/* custom style */
+
+
+body {
+
+	background-color: #d3d3d3; /* #d3d3d3*/
+	font-family: 'PT Sans', sans-serif;
+	background-image: url(../img/slide-01.jpg);
+	background-attachment: fixed;
+	background-size: cover;
+	
+	min-height: 100%;
+
+
+}
+body * {
+	
+	box-sizing: border-box;
+
+}
+
+.j-task {
+	
+	max-width: 960px;
+	width: 98%;
+	margin: auto;
+
+}
+.j-task i {
+    font-style: normal;
+}
+.j-task h1 { 
+
+	color: #fff;
+    text-shadow: 1px 1px 3px #141414;
+    font-size: 2em;
+    text-align: center;
+   
+}
+
+.j-task__title {
+    
+    cursor: pointer;
+    padding: 5px;
+
+}
+
+.j-task__title:hover { background-color: #ececed; }
+
+.j-task__title h2 {
+    float: left;
+
+    width: 70%;
+    
+    margin: 0;
+
+}
+ 
+.j-task__img {
+    
+    display: block;   
+
+}
+
+
+/* статистика */
+.j-task__stat {
+    width: 20%;
+    float: right;
+    padding-top: 2px;
+}
+.j-quantity {
+    float: left;
+    height: 26px;
+    line-height: 26px;
+}
+.j-task__list, .j-task__list_number {
+    
+    list-style: disc;
+    margin: 20px 0;
+
+}
+.j-task__list li,
+.j-task__list_number li {
+    
+   padding-left: 15px;
+   margin-left: 20px;
+   margin-bottom: 10px;
+
+}
+.j-task__list_number {
+    list-style: decimal;
+    margin-left: 0;
+}
+.j-task__list_number li {
+    margin-left: 0;
+    padding-left: 0;
+}
+.color-red { color: #bb1104; font-weight: 600; }
+.color-green { color: #168e03; font-weight: 600; }
+
+.j-quantity span {
+    font-weight: 600;
+    color: #e5001b;
+}
+/* индикация выполнения */
+.j-led {
+    display: block;
+    background: url(../img/progress-bar.png) no-repeat;
+    height: 26px;
+    width: 50px;
+    position: relative;
+    float: right;
+    margin-right: 20px;
+}
+.j-led:before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    height: 18px;
+    
+}
+.j-led.j-led_null:before {
+    background: url(../img/null.png) no-repeat;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.j-led.j-led_p10:before {
+    background-color: #e1001b;
+    width: 3px;
+}
+
+.j-led.j-led_p20:before {
+    background-color: #df4f00;
+    width: 7px;
+}
+
+.j-led.j-led_p30:before {
+    background-color: #df4f00;
+    width: 11px;
+}
+.j-led.j-led_p40:before {
+    background-color: #eb9800;
+    width: 14px;
+}
+
+.j-led.j-led_p50:before {
+    background-color: #eb9800;
+    width: 18px;
+}
+
+.j-led.j-led_p60:before {
+    background-color: #dced00;
+    width: 22px;
+}
+
+.j-led.j-led_p70:before {
+    background-color: #dced00;
+    width: 25px;
+}
+.j-led.j-led_p80:before {
+    background-color: #95f500;
+    width: 29px;
+}
+.j-led.j-led_p90:before {
+    background-color: #95f500;
+    width: 33px;
+}
+
+.j-led.j-led_p100:before {
+    background-color: #35e300;
+    width: 37px;
+}
+
+.j-task__line {
+	
+	background-color: #fff;
+	
+	
+	padding: 20px;
+	
+
+	-webkit-box-shadow: 0 0 10px 0 #3B3B3B;
+	box-shadow: 0 0 10px 0 #3B3B3B;
+    
+    margin-bottom: 20px;
+
+}
+
+.j-task-hide {
+    display: none;
+}
+
+.j-task__box {
+    margin: 20px 0;
+    border-bottom: 2px solid #515151;
+    padding-bottom: 20px;
+}
+.j-task__box:last-child {
+    border-bottom: none;
+}
+.j-task__box { /* display: none; */ }
+.j-task__numb,
+.j-task__accessory,
+.j-task__conditions {
+	float: left; 
+}
+
+.j-task__numb {
+	width: 4.333333333333333%; /* 80/960 */
+	text-align: left;
+}
+
+.j-task__accessory {
+	width: 20.83333333333333%; /* 200/960 */
+}
+.j-task__conditions {
+	width: 70.83333333333333%; /* 680/960 */
+}
+
+.j-task__panel {
+	
+	clear: both;
+	text-align: right;
+	line-height: 1;
+	margin: 20px 0 0 0;
+
+}
+
+
+/*
+    Name:           ph-buttons
+    Description: 	Pixcil Hub Buttons
+    Author: 		   Pixcils®
+    Version: 	  	1.0
+*/
+
+/*Main button class
+==========================*/
+.ph-button {
+	
+    border-style: solid;
+    border-width: 0px 0px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    color: #FFFFFF;	   
+    cursor: pointer;
+    display: inline-block;
+    font-style: normal;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all 200ms ease-in-out 0s;
+    white-space: nowrap;	
+    font-weight: 100;	
+    padding: 5px 20px;
+    font-size: 16px;
+    
+    margin: 0;
+	
+}
+/*Green
+==========================*/
+.ph-btn-green {
+
+    border-color: #3AC162;
+	background-color: #5FCF80;
+
+}
+.ph-btn-green:hover, .ph-btn-green:focus, .ph-btn-green:active {
+    background-color: #4BC970;
+    border-color: #3AC162;    
+}
+
+/*Blue
+==========================*/
+.ph-btn-blue {
+
+    border-color: #326E99;
+    background-color: #3F8ABF;
+}
+
+.ph-btn-blue:hover, .ph-btn-blue:focus, .ph-btn-blue:active {
+    background-color: #397CAC;
+    border-color: #326E99;   
+}
+
+/*Grey
+==========================*/
+.ph-btn-grey {
+
+     background-color: #C6CCD2;
+     border-color: #AAB3BB;
+}
+.ph-btn-grey:hover, .ph-btn-grey:focus, .ph-btn-grey:active {
+    background-color: #B8BFC7;
+    border-color: #AAB3BB; 
+}
+
+/*Grey
+==========================*/
+.ph-btn-no-act {
+
+     background-color: #C6CCD2;
+     border-color: #AAB3BB;
+     cursor: default;
+}
+.ph-btn-no-act:hover, .ph-btn-grey:focus, .ph-btn-grey:active {
+    background-color: #C6CCD2;
+     border-color: #AAB3BB;
+}
+
+
+
+/*Red
+==========================*/
+.ph-btn-red {
+
+    background-color: #ED5A5A !important;
+    border-color: #EA4343 !important;
+
+}
+.ph-btn-red:hover, .ph-btn-red:focus, .ph-btn-red:active {
+    background: none repeat scroll 0 0 #EB4848 !important;
+    border-color: #E83131 !important;    
+}
+
+
+/*DEMO ONLY FOR CENTER POSITION*/
+.ph-container {
+  
+  margin: 0 auto;
+  display: inline;
+
+  
+}
+
+.cf:after {
+        visibility: hidden;
+        display: block;
+        content: "";
+        clear: both;
+        height: 0;
+        }
+* html .cf             { zoom: 1; } /* IE6 */
+*:first-child+html .cf { zoom: 1; } /* IE7 */
+
+
+.color {
+	
+	width: 10px;
+	height: 20px;
+	
+	position: relative;
+
+}

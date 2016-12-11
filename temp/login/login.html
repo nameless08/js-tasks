@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Регистрация пользователей</title>
+</head>
+<body>
+	<script>
+		'use strict'
+
+		var user	= new user(),
+
+		base 	= {
+			data: [],
+			users: {
+				admin : {name:'Валера',pass :'123'},
+				sobaka: {name:'Жучка',pass :'321'},
+				prepod : {name:'Иван',pass :'111'}
+			}
+		} 
+
+		function user() {
+
+	// регистрация
+	this.addUser =   function() {
+
+		var userLogin	= prompt('Введите Ваш логин', '');
+		base.users[userLogin] 			= {};
+		base.users[userLogin].name		= prompt('Введите Вашe имя', '');
+		base.users[userLogin].pass 		= prompt('Введите Ваш пароль', '');
+	}
+
+	// Авторизация
+	this.entry =   function() {
+
+		this.login = prompt('Введите логин!');
+		this.pass = prompt('Введите пароль!');
+
+		for(var key in base.users){
+			if(key == this.login){
+				console.log(key + ': ' + base.users[key].pass);
+				if(base.users[key].pass === this.pass) {
+					alert('Добро пожаловать '+ base.users[key].name);
+				}
+			}
+		}	
+	}
+
+	//Добавление в базу Админом
+	this.addAdmin =   function() {
+
+		this.login = prompt('Введите логин!');
+		this.pass = prompt('Введите пароль!');
+		if (this.login == 'admin') {
+			for(var key in base.users){
+				if(key == this.login){
+					console.log(key + ': ' + base.users[key].pass);
+					if(base.users[key].pass === this.pass) {
+						alert('Добро пожаловать '+ base.users[key].name);
+						while(true) {
+							var add = prompt('Что Вы хотите добавить в БД?', '');
+							if (add) {
+								base.data.push(add);
+							}else{
+								break;
+							}
+						}
+					}
+				}
+			}
+		}else {
+			alert('Извините, но Вы не администратор');
+		}
+		console.log(base);
+	}
+
+	//Просмотр базы
+	this.viewBase = function(){ console.log(base); }
+
+	//Удаление из базы
+	this.deleteAdmin = function() {
+		this.login = prompt('Введите логин!');
+		this.pass = prompt('Введите пароль!');
+		if (this.login == 'admin') {
+			for(var key in base.users){
+				if(key == this.login){
+					console.log(key + ': ' + base.users[key].pass);
+					if(base.users[key].pass === this.pass) {
+						alert('Добро пожаловать '+ base.users[key].name);
+						while(true) {
+							var del = prompt('Что Вы хотите удалить в БД?', '');
+							if (del){
+								for (var i = 0; i < base.data.length; i++) {
+									if(del === base.data[i]){
+										base.data.splice(i,1);
+									}
+								}
+							}else{
+								break;
+							}
+						}
+					}
+				}
+			}
+		}else {
+			alert('Извините, но Вы не администратор');
+		}
+		console.log(base);
+	}
+}
+console.log(base);
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+1.1) <button id="bt1">кнопка</button>
+
+JS:
+var button1 = document.getElementById('bt1');
+
+button1.addEventListener("click", function(){ alert("Вместо этой функции любая другая или колбэк")});
+1.2) <button onclick="alert('ок!');">кнопка</button>
+
+
+
