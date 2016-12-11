@@ -30,195 +30,26 @@
 
 <body>
 
-<div class="calc">
 
-	<form id="calc-form" action="#">
-		<input id="calc-input" type="text" placeholder="Введите значение">
-		<input id="calc-btn" type="submit" value="Рассчитать" onclick="performCalc();">
-	</form>
-
+<div class="traffic-light">
+	<div class="red-light"></div>
+	<div class="yellow-light"></div>
+	<div class="green-light"></div>
 </div>
+
+
 
 <script src="js/jquery-1.11.2.min.js"></script>
 <script src="js/jquery-migrate-1.2.1.min.js"></script>
 <script src="js/main.js"></script>
 
 
-<script>
 
-'use strict'
-
-performCalc();
-
-function performCalc(){
-
-	var reg = /\d+|[\*\-\^\+\/]/g,
-			str = prompt('Введите задание типа: +,7,5,6 либо 5 * 7 / 8 + 9 ^ 2'),
-			arr = str.match(reg),
-			totalValue = 0;
-
-			if(arr.length > 1 && !isNumeric(arr[0])){
-
-				var reg2 = /\d+/g,
-					first = arr[0],
-					arr = str.match(reg2);
-	
-				switch(first){
-					
-					case '+' : for(var i = 0; i < arr.length; i++){ 
-
-						arr[i] = parseFloat(arr[i]);
-						totalValue += arr[i];
-
-					};
-
-					break;
-
-					case '*' : totalValue = 1; 
-
-					for(var i = 0; i < arr.length; i++){ 
-
-						arr[i] = parseFloat(arr[i]);
-						totalValue *= arr[i];
-
-					};
-
-					break;
-
-					case '-' : totalValue = arr[0];
-
-					for(var i = 1; i < arr.length; i++){ 
-
-						arr[i] = parseFloat(arr[i]);
-						totalValue -= arr[i];
-
-					};
-
-					break;
-					
-					case '/' : totalValue = arr[0];
-
-					for(var i = 1; i < arr.length; i++){ 
-
-						arr[i] = parseFloat(arr[i]);
-						totalValue /= arr[i];
-
-					};
-
-					break;
-					
-				};
-
-				alert('Рассчетное значение ' + totalValue);
-
-			} else if(arr.length > 1 && isNumeric(arr[0])) {
-
-			do{
-
-				operatorsPrior('^');
-				console.log(arr);
-
-				operatorsPrior('/');
-				console.log(arr);
-
-				alert(operatorsPrior('*'));
-				console.log(arr);
-
-				operatorsPrior('-');
-				console.log(arr);
-				
-				operatorsPrior('+');
-				console.log(arr);
-
-				}while(arr.length > 1);
-
-				alert('Рассчетное значение ' + arr);
-
-			};
-
-function isNumeric(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
-};
-
-function operatorsPrior(oper) {
-
-	var interValue = 0,
-		a = 0;
-	
-		if(oper === '+'){
-
-			for(var i = 0; i < arr.length; i++){
-
-				if(arr[i] === '+') {
-
-					interValue = parseFloat(arr[i - 1]) + parseFloat(arr[i + 1]);
-					arr.splice(i-1,3,interValue);
-
-				};
-			};
-		};
-
-		if(oper === '-'){
-
-			for(var i = 0; i < arr.length; i++){
-
-				if(arr[i] === '-') {
-
-					interValue = parseFloat(arr[i - 1]) - parseFloat(arr[i + 1]);
-					arr.splice(i-1,3,interValue);
-
-				};
-			};
-		};
-
-		if(oper === '*'){
-
-			for(var i = 0; i < arr.length; i++){
-
-				if(arr[i] === '*') {
-			
-					interValue = parseFloat(arr[i - 1]) * parseFloat(arr[i + 1]);
-					arr.splice(i-1,3,interValue);
-				};
-			};
-		};
-
-		if(oper === '/'){
-
-			for(var i = 0; i < arr.length; i++){
-
-				if(arr[i] === '/') {
-
-					interValue = parseFloat(arr[i - 1]) / parseFloat(arr[i + 1]);
-					arr.splice(i-1,3,interValue);
-				
-				};
-			};
-		};
-
-		if(oper === '^'){
-
-			for(var i = 0; i < arr.length; i++){
-
-				if(arr[i] === '^') {
-
-					interValue = Math.pow(parseFloat(arr[i - 1]), parseFloat(arr[i + 1]));
-					arr.splice(i-1,3,interValue);
-
-				};
-			};
-		};
-
-		return arr;
-	
-};
-
-
-};
+<script src="js/js-solutions/lecture_7/traffic.light.js"></script>
 
 
 
-</script>
+<script></script>
 
 
 </body>
