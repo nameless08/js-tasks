@@ -25,16 +25,17 @@
 <body>
 
 <div class="control-panel">
-	<div><input type="text"></div>
-	<div><input type="text"></div>
-	<div><input type="text"></div>
+	<div><input id="timeRed" type="text" value="123" placeholder="Время для красного света"></div>
+	<div><input id="timeYellow" type="text" value="321" placeholder="Время для желтого света"></div>
+	<div><input id="timeGreen" type="text" value="456" placeholder="Время для зеленого света"></div>
+	<div><input id="turnTrafficLight" type="submit" value="Включить светофор!"></div>
 </div>
 
 <div class="traffic-light">
 	<div>
-		<div class="red-light"></div>
-		<div class="yellow-light"></div>
-		<div class="green-light"></div>
+		<div class="flashlight first"></div>
+		<div class="flashlight second"></div>
+		<div class="flashlight third"></div>
 	</div>
 </div>
 
@@ -43,7 +44,7 @@
 <script src="js/jquery-migrate-1.2.1.min.js"></script>
 <script src="js/main.js"></script>
 
-<script src="js/js-solutions/lecture_7/traffic.light.js"></script>
+<script src="js-solutions/lecture_7/traffic.light.js"></script>
 
 
 

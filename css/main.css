@@ -385,42 +385,47 @@ body * {
 	
 }
 
-.traffic-light .red-light {
+.flashlight {
+
+    background-image: radial-gradient(white,transparent);
+    background-size: 3px 3px;
+    box-shadow: 0 0 20px #111 inset, 0 0 10px #fff;
+
+    border-radius: 50%;
+    background: #fff;
+   
+    color: #fff;
+       
+    position: absolute;
+    left: 16px;
+    
+    height: 42px;
+    width: 42px;
+
+}
+
+.flashlight.first { top: 18px; }
+.flashlight.second { top: 80px; }
+.flashlight.third {  top: 140px; }
+
+.flashlight.red-light {
     background: #fc000f;
     background-image: radial-gradient(brown,transparent);
     background-size: 3px 3px;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    position: absolute;
-    top: 18px;
-    left: 16px;
     box-shadow: 0 0 20px #111 inset, 0 0 10px #fc000f;
 }
 
-.traffic-light .yellow-light {
+.flashlight.yellow-light {
     background: yellow;
     background-image: radial-gradient(orange,transparent);
     background-size: 3px 3px;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    position: absolute;
-    top: 80px;
-    left: 16px;
     box-shadow: 0 0 20px #111 inset, 0 0 10px yellow;
 }
 
-.traffic-light .green-light {
+.flashlight.green-light {
     background: green;
     background-image: radial-gradient(lime,transparent);
     background-size: 3px 3px;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    position: absolute;
-    top: 140px;
-    left: 16px;
     box-shadow: 0 0 20px #111 inset, 0 0 10px lime;
 }
 

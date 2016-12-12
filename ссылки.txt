@@ -1,0 +1,11 @@
+https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
+
+https://developer.mozilla.org/ru/docs/Web/API/Element/classList 
+
+https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById 
+
+https://developer.mozilla.org/ru/docs/Web/API/Document/getElementsByClassName 
+
+https://developer.mozilla.org/ru/docs/Web/API/Document/querySelector 
+
+http://webgent.ru/javascript/window-timers
