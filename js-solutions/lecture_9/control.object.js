@@ -16,7 +16,7 @@ function lec_9_Task_2() {
 			}
 		} 
 
-		function user() {
+	function user() {
 
 	// регистрация
 	this.addUser =   function() {
