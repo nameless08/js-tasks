@@ -20,33 +20,61 @@
 
 	<script src="js/modernizr-2.8.3.min.js"></script>
 
+	<style type="text/css">
+	
+		div{ 
+			height : 50px ; 
+			width : 50px; 
+			margin : 1px; 
+			background-color : black; 
+			border-radius : 25px; 
+			border: solid 1px #000;
+			text-align:  center;
+			}
+
+	</style>
+
 </head>
 
 <body style="background-image: none;">
 
-<div class="control-panel">
-	<div><input id="timeRed" type="text" value="15" placeholder="Время для красного света"></div>
-	<div><input id="timeYellow" type="text" value="2" placeholder="Время для желтого света"></div>
-	<div><input id="timeGreen" type="text" value="15" placeholder="Время для зеленого света"></div>
-	<div><input id="turnTrafficLight" onclick="turnTrafficLight(); return false" type="submit" value="Включить светофор!"></div>
-</div>
-
-<div class="traffic-light">
-	<div>
-		<div class="flashlight first"></div>
-		<div class="flashlight second"></div>
-		<div class="flashlight third"></div>
-	</div>
-</div>
+<div class="box">is box</div>[8,2,8]
+<div class="too">is too</div>[2,2,2]
 
 
 <script src="js/jquery-1.11.2.min.js"></script>
 <script src="js/jquery-migrate-1.2.1.min.js"></script>
 <script src="js/main.js"></script>
 
-<script src="js-solutions/lecture_7/traffic.light.js"></script>
 
+<script type="text/javascript">
 
+	function plugin(s,b) {
+
+	    b.push(b[1]);
+
+	    Array.prototype.forEach.call(document.querySelectorAll(s), function(d,f){
+	        var a = 0,
+	            e = ["#008000", "#FFFF00", "#FF0000", "#FFFF00"],
+	            c = function () {
+	                d.style.backgroundColor = e[a] ;
+	                window.setTimeout(c, 1E3 * b[a]);
+	                a = ++a % 4
+	            };
+	        c()
+	    })
+
+	};
+
+</script>
+<script type="text/javascript">
+	window.onload=function(){
+
+		plugin(".box",[8,2,8]);
+		plugin(".too",[2,2,2]);
+
+	};
+</script>
 
 </body>
 </html>
