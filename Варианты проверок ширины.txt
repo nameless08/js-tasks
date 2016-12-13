@@ -1,0 +1,99 @@
+
+// *** 1
+
+$(document).ready(function(){
+        $(window).on('resize', function() {
+ 
+            if($(window).width()>940) {
+ 
+                $('.accordion-body').addClass('in').css('height','auto');
+ 
+            }
+            if($(window).width()<940){
+ 
+                $('.accordion-body').removeClass('in').removeAttr('style');
+ 
+            }
+ 
+        });
+        $(window).resize();
+     });
+	 
+
+// *** 2 
+
+window.onload = windowload;
+    window.onresize = AppendScript;
+ 
+    function windowload() {
+        AppendScript();
+    }
+ 
+ 
+    function AppendScript() {
+ 
+        if (window.innerWidth >= 940) {
+            Include('site/js/stick.js', 'on')
+            Include('site/js/stick-mobile.js', 'off')
+        }
+        else {
+            Include('site/js/stick.js', 'off')
+            Include('site/js/stick-mobile.js', 'on')
+        }
+    }
+ 
+    function Include(filename, status) {
+        var head = document.getElementsByTagName('head')[0];
+        if (status == 'on') {
+            script = document.createElement('script');
+            script.src = filename;
+            script.type = 'text/javascript';
+            head.appendChild(script)
+        }
+        else if (status == 'off') {
+            var scripts = head.getElementsByTagName('script');
+            if (scripts.length > 0) {
+                head.removeChild(scripts[1]);
+            }
+        }
+    }
+	
+	
+// *** 3 
+
+<script>
+if (document.body.clientWidth>768){
+  document.write('<script src=...>')
+}
+</script>	
+
+<script>
+if (document.body.clientWidth>800){
+   document.write("<script>console.log('hello!');<\/script>");
+}		
+</script>
+
+
+
+// *** 4
+
+<script type="text/javascript">
+$(document).ready(function (){
+fnstart();
+function fnstart(){
+        alert("Функция сработала при старте");
+    }
+ 
+ 
+$(window).resize(function(){
+var winBr = $(window).width();
+if(winBr<800){alert("Меньше 800")}
+else{
+    alert("Больше 800");
+    };
+});     
+ 
+    });/* end ready*/
+</script>
+
+

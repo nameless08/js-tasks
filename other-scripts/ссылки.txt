@@ -1,0 +1,22 @@
+https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
+
+https://developer.mozilla.org/ru/docs/Web/API/Element/classList 
+
+https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById 
+
+https://developer.mozilla.org/ru/docs/Web/API/Document/getElementsByClassName 
+
+https://developer.mozilla.org/ru/docs/Web/API/Document/querySelector 
+
+http://webgent.ru/javascript/window-timers
+
+
+
+
+Интересная реализация светофора:
+http://javascript.ru/forum/dom-window/42030-khochu-realizirovat-algoritm-raboty-svetofora.html 
+Она же в файле traffic-light2.html 
+
+Скрипт фиксации блока
+http://shpargalkablog.ru/2013/09/scroll-block.html
+Файл fixed.html

@@ -1,0 +1,219 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Мелочи</title>
+		
+	<meta name="description" content='<?echo $descr_page;?>' />
+	<meta name="keywords" content='<?echo $keywords_page;?>' />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="icon" href="favicon.ico" type="image/x-icon"> 
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
+
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/main.css">
+
+	<script src="js/modernizr-2.8.3.min.js"></script>
+
+	<style>
+
+		.container {
+			
+			background: gray;
+			height: 2500px;
+			width: 1000px;
+			margin: auto;
+
+		}
+
+		.left-col {
+			height: 2500px;
+			float: left;
+			width: 600px;
+			
+			background: green;
+		}
+		
+		.right-col {
+			float: right;
+			width: 350px;	
+			
+			background: blue;
+			
+
+		}
+		.side-bar {
+			
+			width: 350px;
+			height: 500px;
+			background-color: #d83a4d;
+			
+			/*transition: all 10s linear;
+			-moz-transition: all 10s linear;
+			-webkit-transition: all 10s linear;
+			-o-transition: all 10s linear;
+			*/
+		
+
+
+		}
+
+		.header {
+			
+			margin-bottom: 30px;
+			height: 200px;
+			background-color: #6ce3e2;
+			width: 100%;
+
+		}
+
+		.footer {
+			
+			height: 500px;
+			background-color: #000;
+			width: 100%;
+
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+
+
+   
+<div class="header"></div>
+<div class="container">
+	<div class="left-col"></div>
+	<div class="right-col">
+		<div class="side-bar"></div>
+	</div>
+</div>
+<div class="footer"></div>
+
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+
+<script src="js/main.js"></script>
+
+
+
+<script>
+	if (document.body.clientWidth>768){
+	  document.write('<script src=...>')
+	};
+</script>
+
+
+
+<script>
+	
+
+
+
+(function($, undefined) {
+	'use strict'
+
+	var resolution = Modernizr.mq('(min-width: 1011px)');
+ 	
+ 	if (resolution) {
+ 		
+ 			
+				var block = document.querySelector('.side-bar'),
+					blockIndent = block.offsetTop, // отступ фиксируемого блока сверху
+					blockHeight = block.offsetHeight, // высота фиксируемого блока
+
+					neighborHeight = document.querySelector('.left-col').offsetHeight, // высота соседа
+					container = document.querySelector('.right-col'), // контейнер блока
+					containerHeight,
+					stopHeight;
+
+				containerHeight = neighborHeight + 'px';
+				container.style.height = containerHeight;
+				stopHeight = ((neighborHeight + blockIndent) - blockHeight);
+
+				console.log('Высота фиксируемого блока: ' + blockIndent);
+				console.log('Отступ фиксируемого блока сверху: ' + blockHeight);
+				console.log('Высота отсановки блока:' + stopHeight);
+
+				window.addEventListener('scroll', fixedBlock, false);
+
+
+				function fixedBlock(){
+
+					var top = document.body.scrollTop;
+						
+						if(top > blockIndent && top < stopHeight){
+
+							block.style.position = 'fixed';
+							block.style.top = '5px';
+
+						}else if (top < blockIndent) {
+
+							block.removeAttribute('style');
+
+						};
+
+						if(top > stopHeight){
+
+							block.style.position = 'absolute';
+							block.style.top = stopHeight + 'px';
+
+						};
+
+				}; 
+
+
+	
+ 	
+
+ 	};
+
+		
+	})(jQuery);
+
+
+	
+
+
+</script>
+
+
+<!-- <script>
+	var h_hght = 150; // высота шапки
+	var h_mrg = 0;    // отступ когда шапка уже не видна
+	                 
+	$(function(){
+	 
+	    var elem = $('#top_nav');
+	    var top = $(this).scrollTop();
+
+	    alert($(this).scrollTop());
+	     
+	    if(top > h_hght){
+	        elem.css('top', h_mrg);
+	    }           
+	     
+	    $(window).scroll(function(){
+	        top = $(this).scrollTop();
+	         
+	        if (top+h_mrg < h_hght) {
+	            elem.css('top', (h_hght-top));
+	        } else {
+	            elem.css('top', h_mrg);
+	        }
+	    });
+	 
+	});
+</script>
+ -->
+
+
+</body>
+</html>
