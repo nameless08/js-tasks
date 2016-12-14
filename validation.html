@@ -16,7 +16,7 @@
 	<!-- <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet"> -->
 
 	<link rel="stylesheet" href="css/base.css">
-	<link rel="stylesheet" href="css/main.css">
+<!-- 	<link rel="stylesheet" href="css/main.css"> -->
 	<link rel="stylesheet" href="css/custom-validation.css">
 
 
@@ -25,7 +25,7 @@
 
 </head>
 
-<body style="background: gray;">
+<body>
 
 <div class="j-form">
 
@@ -33,13 +33,13 @@
 
 	<form id="registration-form">
 		
-		<div class="j-form__el req"><input type="text" name="" placeholder="Ваше имя"><span class="j-tooltip"><span>Введите ваше имя, фамилию, отчество</span></span></div>
-		<div class="j-form__el req"><input type="tel" name="" placeholder="Ваш телефон"><span class="j-tooltip"><span>Введите ваше имя, фамилию, отчество</span></span></div>
-		<div class="j-form__el req"><input type="email" name="" placeholder="Ваша почта"><span class="j-tooltip"><span>Введите ваше имя, фамилию, отчество</span></span></div>
-		<div class="j-form__el req"><input type="password" name="" placeholder="Введите ваш пароль"><span class="j-tooltip"><span>Введите ваше имя, фамилию, отчество</span></span></div>
+		<div class="j-form__el req"><input id="name" type="text" name="" placeholder="Ваше имя"><span class="j-tooltip"><span>Вам необходимо ввести минимуму фамилию отчество</span></span></div>
+		<div class="j-form__el req"><input id="phone" type="tel" name="" placeholder="Ваш телефон"><span class="j-tooltip"><span>Введите ваше имя, фамилию, отчество</span></span></div>
+		<div class="j-form__el req"><input id="email" type="email" name="" placeholder="Ваша почта"><span class="j-tooltip"><span>Введите ваше имя, фамилию, отчество</span></span></div>
+		<div class="j-form__el req"><input id="password" type="password" name="" placeholder="Введите ваш пароль"><span class="j-tooltip"><span>Введите ваше имя, фамилию, отчество</span></span></div>
 		<div class="j-form__el">
 			<select>
-		  		<option value="client">Клиент</option>
+		  		<option value="client">Заказчик</option>
 		  		<option value="contractor">Исполнитель</option>
 			</select>
 		</div>
@@ -49,7 +49,15 @@
 				<option value="layout-designer">Верстальщик</option>
 		  		<option value="frontend-dev">Front-end разработчик</option>
 		  		<option value="backend-dev">Back-end разработчик</option>
-		  		<option value="other-master">Специалист другого профиля</option>
+		  		<option value="other-master">Иное</option>
+			</select>
+		</div>
+		<div class="j-form__el">
+			<select>
+				<option value="designer">ИП</option>
+				<option value="layout-designer">ООО</option>
+		  		<option value="frontend-dev">Физ лицо</option>
+		  		<option value="frontend-dev">Иное</option>
 			</select>
 		</div>
 		<div class="j-form__el"><input type="text" name="" placeholder="Введите вашу специальность"><span class="j-tooltip"><span>Введите ваше имя, фамилию, отчество</span></span></div>
@@ -66,6 +74,38 @@
 
 <script>
 	
+var tips = {
+
+	name 	: 'Вам необходимо ввести минимум фамилию, отчество.',
+	phone	: 'Введите номер телефона.',
+	email 	: 'Введите валидный адрес электронной почты, например mail@mail.ru.',
+	pass 	: 'Пароль должен состоять из цифр, символов латинского алфавита и быть не менее 8 символов.',
+
+},
+
+inputName = document.querySelector('#name');
+
+
+inputName.onfocus = function() {
+
+	inputName.classList.toggle('j-input_activ-no-valid');
+
+};
+
+
+function creatToolTip(str,el){
+
+	var input = document.body.children[0];
+
+  input.oninput = function() {
+    document.getElementById('result').innerHTML = input.value;
+  };
+
+
+};
+
+
+
 
 
 </script>
@@ -73,7 +113,18 @@
 
 
 
+  
+
+
+
+
+
+
+
+
+
   <script>
+
     function showError(container, errorMessage) {
       container.className = 'error';
       var msgElem = document.createElement('span');

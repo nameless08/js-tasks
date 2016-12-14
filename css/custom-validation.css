@@ -3,14 +3,23 @@
 
 /* стили валидации */
 
+body {
+	
+	background-image: none;
+	background-color: #e6e1e5;
+
+}
+
 .j-form {
 	
 	margin: auto;
 	max-width: 600px;
-	outline: 1px solid #000;
+	/*outline: 1px solid #000;*/
 
 }
-
+.j-form * {
+	box-sizing: border-box;
+}
 
 .j-form__el {
 	
@@ -26,9 +35,23 @@
 .j-form__el input[type="password"],
 .j-form__el select {
 	
+	border: 1px solid #a1a0a0;
+
+	outline: none;
 	height: 42px;
 	width: 100%;
+	
+	-moz-transition: border 0.2s linear;
+    -webkit-transition: border 0.2s linear;
+    -o-transition: border 0.2s linear;
+    transition: border 0.2s linear;
 
+}
+
+.j-form__el input.j-input_activ-no-valid {
+	
+	border: 1px solid #fa384f;
+	    
 }
 
 
@@ -36,16 +59,16 @@
 
 .j-tooltip {
 
-	position: relative; /* позиционируем */
+	position: relative; 
 	display: block;
-	background: #eaeaea;
-	color: #222;
+/*	background: #eaeaea;
+	color: #222;*/
 	text-decoration: none;
 	cursor: help;
 	outline: none;
 	
 
-	background: url(../img/ico-tooltip.png) no-repeat;
+/*	background: url(../img/ico-tooltip.png) no-repeat;*/
 	background-size: 100% 100%;
 	
 	position: absolute;

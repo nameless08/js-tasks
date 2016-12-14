@@ -86,16 +86,22 @@
 <script>
     (function(){
         var a = document.querySelector('#aside1'), b = null, P = 0;  // если ноль заменить на число, то блок будет прилипать до того, как верхний край окна браузера дойдёт до верхнего края элемента. Может быть отрицательным числом
+        
         window.addEventListener('scroll', Ascroll, false);
+        
         document.body.addEventListener('scroll', Ascroll, false);
+
+
         function Ascroll() {
           if (b == null) {
+           
             var Sa = getComputedStyle(a, ''), s = '';
             for (var i = 0; i < Sa.length; i++) {
               if (Sa[i].indexOf('overflow') == 0 || Sa[i].indexOf('padding') == 0 || Sa[i].indexOf('border') == 0 || Sa[i].indexOf('outline') == 0 || Sa[i].indexOf('box-shadow') == 0 || Sa[i].indexOf('background') == 0) {
                 s += Sa[i] + ': ' +Sa.getPropertyValue(Sa[i]) + '; '
               }
             }
+
             b = document.createElement('div');
             b.style.cssText = s + ' box-sizing: border-box; width: ' + a.offsetWidth + 'px;';
             a.insertBefore(b, a.firstChild);
@@ -125,5 +131,6 @@
             a.children[0].style.width = getComputedStyle(a, '').width
           }, false);
         }
+
     })()
 </script>
