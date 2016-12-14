@@ -92,7 +92,10 @@ inputName.onfocus = function() {
 
 };
 
+inputName.onblur = function() {
+inputName.classList.toggle('j-input_activ-no-valid');
 
+};
 function creatToolTip(str,el){
 
 	var input = document.body.children[0];
