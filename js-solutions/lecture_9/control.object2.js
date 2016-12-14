@@ -1,7 +1,7 @@
 
 'use strict'
 
-function lec_9_Task_2() {
+
 
 	'use strict'
 
@@ -12,15 +12,18 @@ function lec_9_Task_2() {
 			users: {
 				admin : { 
 					name:'Валера',
-					pass :'123', 
+					pass :'Ghfjhkdj8287482kvjkdjv',
+					passComplexity: 300, 
 				},
 				sobaka: { 
 					name:'Жучка',
 					pass :'321',
+					passComplexity: 100, 
 				},
 				prepod : {
 					name:'Николай',
-					pass :'111',
+					pass :'gtgGGj',
+					passComplexity: 200, 
 				},
 			}
 		} 
@@ -35,17 +38,17 @@ function lec_9_Task_2() {
 		base.users[userLogin].name		= prompt('Введите Вашe имя', '');
 		base.users[userLogin].pass 		= prompt('Введите Ваш пароль', '');
 
-		if(/\d{1,}/g.test(pass) && !(/[a-zA-Z]{1,}/g.test(pass))) {
+		if(/\d{1,}/g.test(base.users[userLogin].pass) && !(/[a-zA-Z]{1,}/g.test(base.users[userLogin].pass))) {
 
 			console.log('Пароль первой степени');
 			base.users[userLogin].passComplexity  = 100;
 
-		}else if(/[a-zA-Z]{1,}/g.test(pass) && !(/\d{1,}/g.test(pass))){
+		}else if(/[a-zA-Z]{1,}/g.test(base.users[userLogin].pass) && !(/\d{1,}/g.test(base.users[userLogin].pass))){
 
 			console.log('Пароль второй степени');
 			base.users[userLogin].passComplexity  = 200;
 
-		}else if(/[a-z]|[A-Z]|[a-z][A-Z]\d{1,}/g.test(pass)){
+		}else if(/[a-z]|[A-Z]|[a-z][A-Z]\d{1,}/g.test(base.users[userLogin].pass)){
 
 			console.log('Пароль третей степени');
 			base.users[userLogin].passComplexity  = 300;
@@ -55,8 +58,25 @@ function lec_9_Task_2() {
 			alert('Недопустимый пароль!')
 
 		};
+	};
 
-		
+	this.hacking = function() {
+
+		var max = 300,
+			min = 50,
+			levelHacker = Math.floor(Math.random()*(max - min + 1)) + min;
+
+		alert('Внимание взлом! Уровень хакера ' + levelHacker);	
+
+		for(var key in base.users){
+
+			if(base.users[key].passComplexity < levelHacker){
+
+				console.log(base.users[key].name);
+
+			};
+
+		};
 
 	};
 
@@ -141,7 +161,7 @@ function lec_9_Task_2() {
 console.log(base);
 
 
-};
+
 
 
 // 		var user	= new user(),

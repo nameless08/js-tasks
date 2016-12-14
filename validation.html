@@ -34,10 +34,11 @@
 	<form id="registration-form">
 		
 		<div class="j-form__el req"><input type="text" name="" placeholder="Ваше имя"><span class="j-tooltip"><span>Введите ваше имя, фамилию, отчество</span></span></div>
-		<div class="j-form__el req"><input type="tel" name="" placeholder="Ваш телефон"><span class="j-tooltip"><span>Введите ваше имя, фамилию, отчество</span></span></div>
-		<div class="j-form__el req"><input type="email" name="" placeholder="Ваша почта"><span class="j-tooltip"><span>Введите ваше имя, фамилию, отчество</span></span></div>
-		<div class="j-form__el req"><input type="password" name="" placeholder="Введите ваш пароль"><span class="j-tooltip"><span>Введите ваше имя, фамилию, отчество</span></span></div>
-		<div class="j-form__el">
+		<div class="j-form__el req"><input type="tel" name="" placeholder="Ваш телефон"><span class="j-tooltip"><span>Введите ваш телефон</span></span></div>
+		<div class="j-form__el req"><input type="email" name="" placeholder="Ваша почта"><span class="j-tooltip"><span>Введите вашу адрес электронной почты</span></span></div>
+		<div class="j-form__el req"><input type="password" name="" placeholder="Введите пароль"><span class="j-tooltip"><span>Ввадите ваш пароль</span></span></div>
+		<div class="j-form__el req"><input type="password" name="" placeholder="Повторите пароль"><span class="j-tooltip"><span>Повторить пароль</span></span></div>
+		<div class="j-form__el req">
 			<select>
 		  		<option value="client">Клиент</option>
 		  		<option value="contractor">Исполнитель</option>
@@ -58,18 +59,6 @@
 	</form>
 
 </div>
-
-
-
-
-
-
-<script>
-	
-
-
-</script>
-
 
 
 
@@ -117,8 +106,15 @@
     }
   </script>
 
+<!-- проверка на
+<input type="text"> oninput: <span id="result"></span>
+<script>
+  var input = document.body.children[0];
 
-
-
+  input.oninput = function() {
+    document.getElementById('result').innerHTML = input.value;
+  };
+</script>
+ -->
 </body>
 </html>
