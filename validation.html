@@ -87,8 +87,8 @@
 	},
 
 	// имя 
-	inputName = document.querySelector('#name'),	 		
-	parentName = document.querySelector('.j-form__el_name'),
+	inputLogin = document.querySelector('#name'),	 		
+	parentLogin = document.querySelector('.j-form__el_name'),
 
 	// телефон
 	inputPhone = document.querySelector('#phone'),  		
@@ -104,32 +104,34 @@
 
 
 	// создаем контейнеры для подсказок
-	tipName = document.createElement('span');
-	tipName.className = 'j-ttip j-ttip_help j-ttip_br';
+	toolTip = document.createElement('span');
+
+
+	
 
 
 // проверка почты
 
-inputName.onfocus = function() {
+inputEmail.onfocus = function() {
 
-	inputName.oninput = function() {
+	inputEmail.oninput = function() {
 
-    	var value = inputName.value;
+    	var value = inputEmail.value;
     		
-    	inputName.classList.add('j-input_activ-no-valid');
-
-    	
+    	inputEmail.classList.add('j-input_activ-no-valid');
 
     	if(/.+@.+\..+/i.test(value)){
 
-    		inputName.classList.remove('j-input_activ-no-valid');
-			inputName.classList.add('j-input_activ-valid');
-			tipName.innerHTML = value + ' корректный адрес.';
+    		inputEmail.classList.remove('j-input_activ-no-valid');
+			inputEmail.classList.add('j-input_activ-valid');
+
+			toolTip.className = 'j-ttip j-ttip_critic j-ttip_br';
+			toolTip.innerHTML = value + ' корректный адрес.';
 
     	}else {
 
-    		tipName.innerHTML = tips.name + ' ' + value + ' некорректный.';
-			parentName.appendChild(tipName);
+    		toolTip.innerHTML = tips.name + ' ' + value + ' некорректный.';
+			parentEmail.appendChild(toolTip);
 
     	};
 
@@ -137,9 +139,9 @@ inputName.onfocus = function() {
 
 };
 
-inputName.onblur = function() {
+inputEmail.onblur = function() {
 	
-	parentName.removeChild(tipName)
+	parentEmail.removeChild(toolTip);
 
 };
 

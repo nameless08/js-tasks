@@ -1,0 +1,161 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>jsTasker</title>
+		
+	<meta name="description" content='<?echo $descr_page;?>' />
+	<meta name="keywords" content='<?echo $keywords_page;?>' />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+	<link rel="icon" href="favicon.ico" type="image/x-icon"> 
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
+	<!-- <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet"> -->
+
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/map.css">
+
+	<script src="js/modernizr-2.8.3.min.js"></script>
+
+
+</head>
+
+<body>
+
+
+<div class="j-task">
+	
+	<div class="interactive-map">
+
+		
+			<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>	
+		
+
+		
+			<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>	
+		
+
+		
+			<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>	
+		
+
+		
+			<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>	
+		
+
+		
+			<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>	
+		
+
+		
+			<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>	
+		
+
+		
+			<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>	
+		
+
+		
+			<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>	
+	
+
+		
+			<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>	
+		
+
+		
+			<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>	
+		
+
+	</div>
+
+</div><!-- /j-js-tasker -->
+
+<script>
+	
+	'use strict'
+
+	var interMap = document.querySelector('.interactive-map');
+
+	for (var i = 0; i < interMap.querySelectorAll('.interactive-map>div').length; i++){
+		interMap.querySelectorAll('.interactive-map>div')[i].addEventListener('click', yesClick, false);
+	};
+	
+	function yesClick(e){
+		
+		var currentObj = e.target,
+			selectionPanel = document.createElement('div'),
+			greenery = document.createElement('div'),
+			house = document.createElement('div'),
+			roads = document.createElement('div'),
+			clearThis = document.createElement('div'),
+			overflow = document.createElement('div');
+			
+			house.innerHTML = 'Дом';
+			roads.innerHTML = 'Дорога';
+			greenery.innerHTML = 'Аллея';
+			clearThis.innerHTML = 'x';
+			
+			greenery.className = 'greenery';
+			clearThis.className = 'clear';
+			house.className = 'house';
+			roads.className = 'roads';
+			selectionPanel.className = 'selection';
+			overflow.className = 'owerflow';
+			
+			selectionPanel.appendChild(greenery);
+			selectionPanel.appendChild(house);
+			selectionPanel.appendChild(roads);
+			selectionPanel.appendChild(clearThis);
+
+			document.body.appendChild(overflow);
+
+			document.body.appendChild(selectionPanel);
+
+			// currentObj.classList.toggle('greenery');
+			
+			greenery.addEventListener('click', addGreen, false);
+			house.addEventListener('click', addHouse, false);
+			roads.addEventListener('click', addRoads, false);
+			clearThis.addEventListener('click', cleaning, false);
+				
+			function addGreen(){
+				currentObj.classList.remove('greenery', 'house', 'roads');
+				currentObj.classList.add('greenery');
+				document.body.removeChild(selectionPanel);
+				document.body.removeChild(overflow);
+			};
+
+			function addHouse(){
+				currentObj.classList.remove('greenery', 'house', 'roads');
+				currentObj.classList.add('house');
+				document.body.removeChild(selectionPanel);
+				document.body.removeChild(overflow);
+			};
+
+			function addRoads(){
+				currentObj.classList.remove('greenery', 'house', 'roads');
+				currentObj.classList.add('roads');
+				document.body.removeChild(selectionPanel);
+				document.body.removeChild(overflow);
+			};
+
+			function cleaning(){
+				currentObj.classList.remove('greenery', 'house', 'roads');
+				document.body.removeChild(selectionPanel);
+				document.body.removeChild(overflow);
+			};
+
+	};
+
+
+</script>
+
+
+
+
+</body>
+</html>

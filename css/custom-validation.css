@@ -105,12 +105,9 @@ body {
 	cursor: help;
 	outline: none;
 	
-
-
 	position: absolute;
 	right: 0;
 	top: 50px;
-
 
 	z-index: 98; 
 	
@@ -174,6 +171,8 @@ body {
 
 
 .j-ttip_critic {
+
+	background-color: #ff5e5e;
 	
 }
 

@@ -1,0 +1,130 @@
+
+.interactive-map * {
+	
+	box-sizing: border-box;
+
+}
+.interactive-map {
+
+	border: 1px solid #000;
+	
+	border-right: none;
+	border-bottom: none;
+	
+	height: 500px;
+	width: 500px;
+	
+	margin: 100px auto 0 auto;
+	
+	z-index: 5;
+
+}
+
+
+.interactive-map>div {
+	
+	height: 50px;
+	width: 50px;
+	
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	
+	float: left;
+	
+	cursor: pointer;
+	
+	-webkit-transition: background 0.2s linear 0s;
+	-moz-transition: background 0.2s linear 0s;
+	-o-transition: background 0.2s linear 0s;
+	transition: background 0.2s linear 0s;
+	
+	position: relative;
+
+}
+.interactive-map>div:hover {
+	background-color: #f7f38b;
+}
+
+
+
+/* растительность */
+.interactive-map div.greenery, div.greenery { background-color: #39eb16; }
+.interactive-map div.house, div.house { background-color: #9b9b9b; }
+.interactive-map div.roads, div.roads { background-color: #631c03; }
+.interactive-map div.clear, div.clear { /*border: 1px solid #000;*/ }
+
+.interactive-map div.greenery {
+	
+	background: #39eb16 url(../img/green.png) no-repeat;
+
+}
+.interactive-map div.house {
+	
+	background: #9b9b9b url(../img/house.png) no-repeat;
+
+}
+.interactive-map div.roads {
+	
+	background: #631c03 url(../img/roads.png) no-repeat;
+
+}
+
+
+.selection {
+	
+	position: fixed;
+	top: 10px;
+	left: 50%;
+	
+	border: 1px solid #b3b4b5;
+	
+	padding: 15px 10px;
+	width: 248px;
+	
+	margin-left: -107px;
+	
+	z-index: 10;
+	
+	-webkit-box-shadow: 0 0 10px 0 #949494;
+	box-shadow: 0 0 10px 0 #949494;
+	
+	background-color: #fff;
+
+}
+.selection .clear {
+	font-size: 18px;
+}
+
+.selection .roads {
+	
+	color: #fff;
+
+}
+.selection div {
+	
+	margin: 0 0 0 10px;
+	float: left;
+	height: 50px;
+	width: 50px;
+	
+	outline: 1px solid #b3b4b5;
+	
+	line-height: 50px;
+	text-align: center;
+	
+	font-size: 12px;
+	font-weight: bold;
+	
+}
+
+.owerflow {
+	
+	background-color: rgba(255,255,255, 0.8);
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 9;
+
+}
