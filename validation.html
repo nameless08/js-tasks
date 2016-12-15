@@ -16,7 +16,6 @@
 	<!-- <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet"> -->
 
 	<link rel="stylesheet" href="css/base.css">
-	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/custom-validation.css">
 
 
@@ -25,7 +24,7 @@
 
 </head>
 
-<body style="background: gray;">
+<body>
 
 <div class="j-form">
 
@@ -33,14 +32,13 @@
 
 	<form id="registration-form">
 		
-		<div class="j-form__el req"><input type="text" name="" placeholder="Ваше имя"><span class="j-tooltip"><span>Введите ваше имя, фамилию, отчество</span></span></div>
-		<div class="j-form__el req"><input type="tel" name="" placeholder="Ваш телефон"><span class="j-tooltip"><span>Введите ваш телефон</span></span></div>
-		<div class="j-form__el req"><input type="email" name="" placeholder="Ваша почта"><span class="j-tooltip"><span>Введите вашу адрес электронной почты</span></span></div>
-		<div class="j-form__el req"><input type="password" name="" placeholder="Введите пароль"><span class="j-tooltip"><span>Ввадите ваш пароль</span></span></div>
-		<div class="j-form__el req"><input type="password" name="" placeholder="Повторите пароль"><span class="j-tooltip"><span>Повторить пароль</span></span></div>
-		<div class="j-form__el req">
+		<div class="j-form__el req"><input id="name" type="text" name="" placeholder="Ваше имя"><span class="j-ttip j-ttip_help j-ttip_br">Вам необходимо ввести минимуму фамилию отчество</span></div>
+		<div class="j-form__el req"><input id="phone" type="tel" name="" placeholder="Ваш телефон"></div>
+		<div class="j-form__el req"><input id="email" type="email" name="" placeholder="Ваша почта"></div>
+		<div class="j-form__el req"><input id="password" type="password" name="" placeholder="Введите ваш пароль"></div>
+		<div class="j-form__el">
 			<select>
-		  		<option value="client">Клиент</option>
+		  		<option value="client">Заказчик</option>
 		  		<option value="contractor">Исполнитель</option>
 			</select>
 		</div>
@@ -50,10 +48,18 @@
 				<option value="layout-designer">Верстальщик</option>
 		  		<option value="frontend-dev">Front-end разработчик</option>
 		  		<option value="backend-dev">Back-end разработчик</option>
-		  		<option value="other-master">Специалист другого профиля</option>
+		  		<option value="other-master">Иное</option>
 			</select>
 		</div>
-		<div class="j-form__el"><input type="text" name="" placeholder="Введите вашу специальность"><span class="j-tooltip"><span>Введите ваше имя, фамилию, отчество</span></span></div>
+		<div class="j-form__el">
+			<select>
+				<option value="designer">ИП</option>
+				<option value="layout-designer">ООО</option>
+		  		<option value="frontend-dev">Физ лицо</option>
+		  		<option value="frontend-dev">Иное</option>
+			</select>
+		</div>
+		<div class="j-form__el"><input type="text" name="" placeholder="Введите вашу специальность"></div>
 		<div class="j-form__el"><input type="submit" name="" value="Зарегистрироваться"></div>
 
 	</form>
@@ -62,7 +68,89 @@
 
 
 
-  <script>
+
+<script>
+	
+var tips = {
+
+	name 	: 'Вам необходимо ввести минимум фамилию, отчество.',
+	phone	: 'Введите номер телефона.',
+	email 	: 'Введите валидный адрес электронной почты, например mail@mail.ru.',
+	pass 	: 'Пароль должен состоять из цифр, символов латинского алфавита и быть не менее 8 символов.',
+
+},
+
+inputName = document.querySelector('#name');
+
+var temp = true;
+
+
+inputName.onfocus = function() {
+
+	inputName.oninput = function() {
+
+    	var value = inputName.value;
+    	inputName.classList.add('j-input_activ-no-valid');
+
+    	if(/.+@.+\..+/i.test(value)){
+
+    		inputName.classList.remove('j-input_activ-no-valid');
+			inputName.classList.add('j-input_activ-valid');
+
+    	};
+
+  	};
+
+};
+
+inputName.onblur = function() {
+	
+	inputName.classList.toggle('j-input_activ-no-valid');
+
+};
+
+
+
+
+// проверка номера телефона: ^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$
+// проверка email: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
+// или так: /.+@.+\..+/i
+// проверка на имя отчество /^[a-zA-Zа-яёА-ЯЁ\s\-]+$/ 
+
+
+
+function creatToolTip(str,el){
+
+	var input = document.body.children[0];
+
+  input.oninput = function() {
+    document.getElementById('result').innerHTML = input.value;
+  };
+
+
+};
+
+
+
+
+
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+ <script>
+
     function showError(container, errorMessage) {
       container.className = 'error';
       var msgElem = document.createElement('span');
@@ -79,6 +167,7 @@
     }
 
     function validate(form) {
+    	
       var elems = form.elements;
 
       resetError(elems.from.parentNode);
@@ -87,6 +176,7 @@
       }
 
       resetError(elems.password.parentNode);
+
       if (!elems.password.value) {
         showError(elems.password.parentNode, ' Укажите пароль.');
       } else if (elems.password.value != elems.password2.value) {
