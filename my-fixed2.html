@@ -49,7 +49,7 @@
 		.side-bar {
 			
 			width: 350px;
-			height: 500px;
+		
 			background-color: #d83a4d;
 			
 			/*transition: all 10s linear;
@@ -104,57 +104,59 @@
 
 
 
-<script>
-	if (document.body.clientWidth>768){
-	  document.write('<script src=...>')
-	};
-</script>
+
 
 
 
 <script>
 	
 
+'use strict'
 
+;(function($, undefined) {
+	
+	var winWidth = $(window).width();
+	 
+	$(window).resize(function(){
 
-(function($, undefined) {
-	'use strict'
-
-	var resolution = Modernizr.mq('(min-width: 1011px)');
- 	
- 	if (resolution) {
+		winWidth = $(window).width();
+		
+	});   
  		
+ 		if(winWidth > 1010) {
  			
-				var block = document.querySelector('.side-bar'),
-					blockIndent = block.offsetTop, // отступ фиксируемого блока сверху
-					blockHeight = block.offsetHeight, // высота фиксируемого блока
+			var block = document.querySelector('.side-bar'),
+				blockCoordinates = block.getBoundingClientRect(), // координаты блока относительно окна
+                blockIndent = blockCoordinates.top, // отступ блока сверху 
+				blockHeight = block.offsetHeight, // высота фиксируемого блока
 
-					neighborHeight = document.querySelector('.left-col').offsetHeight, // высота соседа
-					container = document.querySelector('.right-col'), // контейнер блока
-					containerHeight,
-					stopHeight;
+				neighborHeight = document.querySelector('.left-col').offsetHeight, // высота соседа
+				container = document.querySelector('.right-col'), // контейнер блока
+				containerHeight,
+				stopHeight;
 
 				containerHeight = neighborHeight + 'px';
 				container.style.height = containerHeight;
 				stopHeight = ((neighborHeight + blockIndent) - blockHeight);
 
-				console.log('Высота фиксируемого блока: ' + blockIndent);
-				console.log('Отступ фиксируемого блока сверху: ' + blockHeight);
+				console.log(blockCoordinates);
+				console.log( blockIndent);
+				console.log('Высота фиксируемого блока: ' + blockHeight);
+				console.log('Отступ фиксируемого блока сверху: ' + blockIndent);
 				console.log('Высота отсановки блока:' + stopHeight);
 
 				window.addEventListener('scroll', fixedBlock, false);
 
-
 				function fixedBlock(){
 
 					var top = document.body.scrollTop;
-						
-						if(top > blockIndent && top < stopHeight){
+							
+						if(top > blockIndent && top < stopHeight && winWidth > 1010){
 
 							block.style.position = 'fixed';
 							block.style.top = '5px';
 
-						}else if (top < blockIndent) {
+						}else if (top < blockIndent || winWidth < 1010) {
 
 							block.removeAttribute('style');
 
@@ -165,21 +167,14 @@
 							block.style.position = 'absolute';
 							block.style.top = stopHeight + 'px';
 
-						};
+					};
 
-				}; 
+			}; 
 
-
+		};
 	
- 	
-
- 	};
-
-		
+ 			
 	})(jQuery);
-
-
-	
 
 
 </script>

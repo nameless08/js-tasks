@@ -106,81 +106,73 @@
 	
 	'use strict'
 
-		var winWidth = $(window).width(); 
-
-		$(window).resize(function() {
+	jQuery(document).ready(function() {
+    	
+    	// проверка ширины экрана
+	    var winWidth = jQuery(window).width();
+	     
+	    jQuery(window).resize(function(){ winWidth = $(window).width(); });   
+        
+		var debug = true,
+			block = document.querySelector('.side-bar'),
+			blockHeight = block.offsetHeight, // высота фиксируемого блока
+			blockIndent = 230, //block.getBoundingClientRect().top,  отступ блока от края браузера
 		
-			winWidth = $(window).width();
-			console.log($(window).width());
-
-		});
-
-		// window.addEventListener('scroll', fixedBlock, false);
-
-		console.log(winWidth);
-
-		(function($, undefined) {
-
+			container = document.querySelector('.right-col'), // контейнер блока
+			containerHeight = document.querySelector('.left-col').offsetHeight,
 			
+			stopHeight = ((containerHeight + blockIndent) - blockHeight), // точка остановки
+			scroolTop = document.body.scrollTop; // получение значения прокрутки при перезагрузки страницы 
 
-			if(winWidth > 1011){
-
-
-				var block = document.querySelector('.side-bar'),
-					blockIndent = block.offsetTop, // отступ фиксируемого блока сверху
-					blockHeight = block.offsetHeight, // высота фиксируемого блока
-
-					neighborHeight = document.querySelector('.left-col').offsetHeight, // высота соседа
-					container = document.querySelector('.right-col'), // контейнер блока
-					containerHeight,
-					stopHeight;
-
-				containerHeight = neighborHeight + 'px';
-				container.style.height = containerHeight;
-				stopHeight = ((neighborHeight + blockIndent) - blockHeight);
-
-				console.log('Высота фиксируемого блока: ' + blockIndent);
-				console.log('Отступ фиксируемого блока сверху: ' + blockHeight);
-				console.log('Высота отсановки блока:' + stopHeight);
-
-				window.addEventListener('scroll', fixedBlock, false);
-
-
-				function fixedBlock(){
-
-					var top = document.body.scrollTop;
-						
-						if(top > blockIndent && top < stopHeight){
-
-							block.style.position = 'fixed';
-							block.style.top = '5px';
-
-						}else if (top < blockIndent) {
-
-							block.removeAttribute('style');
-
-						};
-
-						if(top > stopHeight){
-
-							block.style.position = 'absolute';
-							block.style.top = stopHeight + 'px';
-
-						};
-
-				}; 
-
-
-			}else if(winWidth < 1011){
-
-				block.removeAttribute('style');
-				container.removeAttribute('style');
-
+			if(scroolTop > blockIndent && top < stopHeight && winWidth > 1010){
+				block.style.position = 'fixed';
+                block.style.top = '0';
 			};
 
+            container.style.height = containerHeight + 'px';
 
-	})(jQuery);
+            window.addEventListener('scroll', fixedBlock, false);
 
+            function fixedBlock(){
+
+                scroolTop = document.body.scrollTop; // обновление значения при прокрутке
+                                
+                if(scroolTop > blockIndent && winWidth > 1010){
+
+                    block.style.position = 'fixed';
+                    block.style.top = '0';
+
+                };
+
+                if(scroolTop > ((blockIndent + containerHeight) - blockHeight) && winWidth > 1010){
+
+                    block.style.position = 'absolute';
+                    block.style.top = ((containerHeight - blockHeight) + blockIndent) + 'px';
+
+                };
+     
+   				if(scroolTop < blockIndent || winWidth < 1010) {
+
+                    block.removeAttribute('style');
+
+                };
+
+                if(debug) { console.log('Значение прокрутки: ' + scroolTop) };
+
+            }; 
+
+    if(debug) {
+
+		console.log('Отступ блока от верхнего края окна: ' + blockIndent + 'px');
+		console.log('Высота фиксируемого блока: ' + blockHeight + 'px');
+		console.log('***');
+		console.log('Высота контейнера: ' + containerHeight + 'px');
+		console.log('***')
+		console.log('Значение прокрутки при обновлении документа: ' + scroolTop + 'px');
+			
+	};
+              
+});
 
 </script>
 
