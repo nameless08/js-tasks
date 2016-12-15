@@ -17,6 +17,7 @@
 
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/custom-validation.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
 
 
 	<script src="js/modernizr-2.8.3.min.js"></script>
@@ -26,21 +27,25 @@
 
 <body>
 
+<div class="j-top-line"></div>
+
 <div class="j-form">
 
 	<h3>Форма регистрации</h3>
 
 	<form id="registration-form">
 		
-		<div class="j-form__el req"><input id="name" type="text" name="" placeholder="Ваше имя"><span class="j-ttip j-ttip_help j-ttip_br">Вам необходимо ввести минимуму фамилию отчество</span></div>
-		<div class="j-form__el req"><input id="phone" type="tel" name="" placeholder="Ваш телефон"></div>
-		<div class="j-form__el req"><input id="email" type="email" name="" placeholder="Ваша почта"></div>
-		<div class="j-form__el req"><input id="password" type="password" name="" placeholder="Введите ваш пароль"></div>
-		<div class="j-form__el">
+		<div class="j-form__el j-form__el_name req"><input id="name" type="text" name="" placeholder="Ваше имя"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+		<div class="j-form__el j-form__el_phone"><input id="phone" type="tel" name="" placeholder="Ваш телефон"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+		<div class="j-form__el j-form__el_email req"><input id="email" type="email" name="" placeholder="Ваша почта"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+		<div class="j-form__el j-form__el_pass req"><input id="password" type="password" name="" placeholder="Введите ваш пароль"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+		<div class="j-form__el j-form__el_pass req"><input id="password-again" type="password" name="" placeholder="Повторите пароль"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+		<div class="j-form__el req">
 			<select>
 		  		<option value="client">Заказчик</option>
 		  		<option value="contractor">Исполнитель</option>
 			</select>
+			<i class="fa fa-question-circle-o" aria-hidden="true"></i>
 		</div>
 		<div class="j-form__el">
 			<select>
@@ -50,6 +55,7 @@
 		  		<option value="backend-dev">Back-end разработчик</option>
 		  		<option value="other-master">Иное</option>
 			</select>
+			<i class="fa fa-question-circle-o" aria-hidden="true"></i>
 		</div>
 		<div class="j-form__el">
 			<select>
@@ -58,9 +64,10 @@
 		  		<option value="frontend-dev">Физ лицо</option>
 		  		<option value="frontend-dev">Иное</option>
 			</select>
+			<i class="fa fa-question-circle-o" aria-hidden="true"></i>
 		</div>
-		<div class="j-form__el"><input type="text" name="" placeholder="Введите вашу специальность"></div>
-		<div class="j-form__el"><input type="submit" name="" value="Зарегистрироваться"></div>
+		<div class="j-form__el"><input type="text" name="" placeholder="Введите вашу специальность"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+		<div class="j-form__el"><input type="submit" name="" onclick="" value="Зарегистрироваться"></div>
 
 	</form>
 
@@ -70,32 +77,61 @@
 
 
 <script>
+
+	// определяем основные переменные
+	var tips = {
+
+		name 	: 'Введенный Вами адрес :',
+		phone	: 'Введите номер телефона.',
+		email 	: 'Введите валидный адрес электронной почты, например mail@mail.ru.',
+		pass 	: 'Пароль должен состоять из цифр, символов латинского алфавита и быть не менее 8 символов.',
+
+	},
+
+	// имя 
+	inputName = document.querySelector('#name'),	 		
+	parentName = document.querySelector('.j-form__el_name'),
+
+	// телефон
+	inputPhone = document.querySelector('#phone'),  		
+	parentPhone = document.querySelector('.j-form__el_phone'),
 	
-var tips = {
+	// почта
+	inputEmail = document.querySelector('#email'),  
+	parentEmail = document.querySelector('.j-form__el_email'),
 
-	name 	: 'Вам необходимо ввести минимум фамилию, отчество.',
-	phone	: 'Введите номер телефона.',
-	email 	: 'Введите валидный адрес электронной почты, например mail@mail.ru.',
-	pass 	: 'Пароль должен состоять из цифр, символов латинского алфавита и быть не менее 8 символов.',
+	// Пароль
+	inputPass = document.querySelector('#email'),  
+	parentPass = document.querySelector('.j-form__el_pass'),
 
-},
 
-inputName = document.querySelector('#name');
+	// создаем контейнеры для подсказок
+	tipName = document.createElement('span');
+	tipName.className = 'j-ttip j-ttip_help j-ttip_br';
 
-var temp = true;
 
+// проверка почты
 
 inputName.onfocus = function() {
 
 	inputName.oninput = function() {
 
     	var value = inputName.value;
+    		
     	inputName.classList.add('j-input_activ-no-valid');
+
+    	
 
     	if(/.+@.+\..+/i.test(value)){
 
     		inputName.classList.remove('j-input_activ-no-valid');
 			inputName.classList.add('j-input_activ-valid');
+			tipName.innerHTML = value + ' корректный адрес.';
+
+    	}else {
+
+    		tipName.innerHTML = tips.name + ' ' + value + ' некорректный.';
+			parentName.appendChild(tipName);
 
     	};
 
@@ -105,13 +141,13 @@ inputName.onfocus = function() {
 
 inputName.onblur = function() {
 	
-	inputName.classList.toggle('j-input_activ-no-valid');
+	parentName.removeChild(tipName)
 
 };
 
 
 
-
+// var temp = true;
 // проверка номера телефона: ^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$
 // проверка email: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
 // или так: /.+@.+\..+/i
