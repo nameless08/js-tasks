@@ -36,6 +36,9 @@
 			width: 600px;
 			
 			background: green;
+			
+			position: relative;
+
 		}
 		
 		.right-col {
@@ -115,11 +118,13 @@
             blockHeight = block.offsetHeight, // высота фиксируемого блока
             blockIndent = 230, //block.getBoundingClientRect().top,  отступ блока от края браузера
         
-            container = document.querySelector('.left-col'), // контейнер блока
-            containerHeight = document.querySelector('.right-col').offsetHeight,
-            
+            container = document.querySelector('.right-col'), // контейнер блока
+            containerHeight = document.querySelector('.left-col').offsetHeight,
+
             stopHeight = ((containerHeight + blockIndent) - blockHeight), // точка остановки
             scroolTop = document.body.scrollTop; // получение значения прокрутки при перезагрузки страницы 
+
+            alert(containerHeight);
 
             jQuery(window).resize(function(){ 
                 winWidth = $(window).width(); // переприсвоение значение при изменении 
