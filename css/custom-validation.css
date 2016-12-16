@@ -145,40 +145,47 @@ body {
 	
 }
 
-/* разные положения */
-.j-ttip_br:after {
-
+.j-ttip_help:after {
+	
+	margin-left: -8px;
+	top: -8px;
+	right: 10%;
 	border-bottom: 8px solid #449d48;
 	border-left: 8px solid transparent;
 	border-right: 8px solid transparent;
-	top: -8px;
-	right: 10%;
-	
-}
-
-.j-ttip_help:after {
-	
-
-	
-	
-	margin-left: -8px;
 
 }
-
-
-
-
-
 
 .j-ttip_critic {
 
 	background-color: #ff5e5e;
 	
+	color: #fff;
+	
+	opacity: .98;
+
+	font-size: 12px;
+	
+	-webkit-box-shadow: 0 0 3px 0 #787878;
+	box-shadow: 0 0 3px 0 #787878;
+	
 }
+.j-ttip_critic:after {
+
+	margin-left: -8px;
+	top: -8px;
+	right: 10%;
+	border-bottom: 8px solid #ff5e5e;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	
+}
+
 
 .j-ttip_warning {
 	
 }
+
 .j-ttip_info {
 	
 }

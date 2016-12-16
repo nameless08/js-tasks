@@ -74,12 +74,49 @@
 </div>
 
 
+<div class="j-private-office">
+	
+	<div class="j-user-login">
+		
+		<div class="j-data-login">
+			<span></span>
+			<a href="#" title="">изменить</a>
+		</div>
+		
+		<div class="panel" style="display: none;">
+			<form action="">
+				<input type="text">
+				<input type="submit">
+			</form>
+		</div>
+
+	</div>
+
+	<div class="j-user-email">
+		
+
+	</div>
+
+	<div class="j-user-phone">
+		
+
+	</div>
+
+	<div class="j-user-pass">
+
+
+	</div>
+
+
+</div>
+
+
 <script>
 
 	// определяем основные переменные
 	var tips = {
 
-		name 	: 'Введенный Вами адрес :',
+		name 	: '',
 		phone	: 'Введите номер телефона.',
 		email 	: 'Введите валидный адрес электронной почты, например mail@mail.ru.',
 		pass 	: 'Пароль должен состоять из цифр, символов латинского алфавита и быть не менее 8 символов.',
@@ -106,12 +143,43 @@
 	// создаем контейнеры для подсказок
 	toolTip = document.createElement('span');
 
+  
+	inputLogin.addEventListener('input', yesClick, false);;
 
+
+// проверка логина
+function validateLogin() {
+
+    var value = inputLogin.value;
+    		
+    inputLogin.classList.add('j-input_activ-no-valid');
+
+    if(/^[a-zA-Zа-яёА-ЯЁ\s\-]+$/.test(value)){
+
+    	inputLogin.classList.remove('j-input_activ-no-valid');
+		inputLogin.classList.add('j-input_activ-valid');
+
+		toolTip.className = 'j-ttip j-ttip_help j-ttip_br';
+		toolTip.innerHTML = value + ' хорошее Имя Отчество :).';
+
+    }else {
+
+    	toolTip.innerHTML = tips.name + ' ' + value + ' странное имя, попробуйте что-нибудь другое.';
+    	toolTip.className = 'j-ttip j-ttip_critic j-ttip_br';
+		parentLogin.appendChild(toolTip);
+
+    };
+
+  };
+
+
+inputLogin.onblur = function() {
 	
+	parentLogin.removeChild(toolTip);
 
+};
 
 // проверка почты
-
 inputEmail.onfocus = function() {
 
 	inputEmail.oninput = function() {
@@ -125,12 +193,13 @@ inputEmail.onfocus = function() {
     		inputEmail.classList.remove('j-input_activ-no-valid');
 			inputEmail.classList.add('j-input_activ-valid');
 
-			toolTip.className = 'j-ttip j-ttip_critic j-ttip_br';
+			toolTip.className = 'j-ttip j-ttip_help j-ttip_br';
 			toolTip.innerHTML = value + ' корректный адрес.';
 
     	}else {
 
     		toolTip.innerHTML = tips.name + ' ' + value + ' некорректный.';
+    		toolTip.className = 'j-ttip j-ttip_critic j-ttip_br';
 			parentEmail.appendChild(toolTip);
 
     	};
@@ -147,6 +216,11 @@ inputEmail.onblur = function() {
 
 
 
+
+
+
+
+
 // var temp = true;
 // проверка номера телефона: ^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$
 // проверка email: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
@@ -154,17 +228,6 @@ inputEmail.onblur = function() {
 // проверка на имя отчество /^[a-zA-Zа-яёА-ЯЁ\s\-]+$/ 
 
 
-
-function creatToolTip(str,el){
-
-	var input = document.body.children[0];
-
-  input.oninput = function() {
-    document.getElementById('result').innerHTML = input.value;
-  };
-
-
-};
 
 
 
