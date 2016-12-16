@@ -39,16 +39,17 @@
 		<div class="j-form__el j-form__el_phone"><input id="phone" type="tel" name="" placeholder="Ваш телефон"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
 		<div class="j-form__el j-form__el_email req"><input id="email" type="email" name="" placeholder="Ваша почта"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
 		<div class="j-form__el j-form__el_pass req"><input id="password" type="password" name="" placeholder="Введите ваш пароль"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
-		<div class="j-form__el j-form__el_pass req"><input id="password-again" type="password" name="" placeholder="Повторите пароль"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
-		<div class="j-form__el req">
+		<div class="j-form__el j-form__el_pass req"><input id="password-again" type="password" name="" placeholder="Повторите пароль"></div>
+		<div class="j-form__el j-form__el_user-type req">
 			<select>
 		  		<option value="client">Заказчик</option>
 		  		<option value="contractor">Исполнитель</option>
 			</select>
 			<i class="fa fa-question-circle-o" aria-hidden="true"></i>
 		</div>
-		<div class="j-form__el">
+		<div class="j-form__el j-form__el_specialty" style="display: none;">
 			<select>
+				<option value="notchosen" selected>Выбрать</option>
 				<option value="designer">Дизайнер</option>
 				<option value="layout-designer">Верстальщик</option>
 		  		<option value="frontend-dev">Front-end разработчик</option>
@@ -57,16 +58,15 @@
 			</select>
 			<i class="fa fa-question-circle-o" aria-hidden="true"></i>
 		</div>
-		<div class="j-form__el">
+		<div class="j-form__el j-form__el_customer-type" style="display: none;">
 			<select>
-				<option value="designer">ИП</option>
-				<option value="layout-designer">ООО</option>
-		  		<option value="frontend-dev">Физ лицо</option>
-		  		<option value="frontend-dev">Иное</option>
+				<option value="sp">ИП</option>
+				<option value="ltd">ООО</option>
+		  		<option value="individual">Физ. лицо</option>
 			</select>
 			<i class="fa fa-question-circle-o" aria-hidden="true"></i>
 		</div>
-		<div class="j-form__el"><input type="text" name="" placeholder="Введите вашу специальность"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+		<div class="j-form__el j-form__el_other-spec" style="display: none"><input type="text" name="" placeholder="Введите вашу специальность"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
 		<div class="j-form__el"><input type="submit" name="" onclick="" value="Зарегистрироваться"></div>
 
 	</form>
@@ -143,11 +143,11 @@
 	// создаем контейнеры для подсказок
 	toolTip = document.createElement('span');
 
-  
-	inputLogin.addEventListener('input', yesClick, false);;
 
+// *** проверка логина
+inputLogin.addEventListener('input', validateLogin, false);
+inputLogin.addEventListener('blur', completedLogin, false);
 
-// проверка логина
 function validateLogin() {
 
     var value = inputLogin.value;
@@ -172,17 +172,57 @@ function validateLogin() {
 
   };
 
-
-inputLogin.onblur = function() {
-	
+function completedLogin(){
 	parentLogin.removeChild(toolTip);
+};
+
+// *** проверка телефона
+inputPhone.addEventListener('input', validatePhone, false);
+inputPhone.addEventListener('blur', completedPhone, false);
+
+function validatePhone() {
+
+    	var value = inputPhone.value;
+    		
+    	inputPhone.classList.add('j-input_activ-no-valid');
+
+    	if(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(value)){
+
+    		inputPhone.classList.remove('j-input_activ-no-valid');
+			inputPhone.classList.add('j-input_activ-valid');
+
+			toolTip.className = 'j-ttip j-ttip_help j-ttip_br';
+			toolTip.innerHTML = value + ' корректный адрес.';
+
+    	}else {
+
+    		toolTip.innerHTML = tips.name + ' ' + value + ' некорректный.';
+    		toolTip.className = 'j-ttip j-ttip_critic j-ttip_br';
+			parentPhone.appendChild(toolTip);
+
+    	};
+
+  	};
+
+function completedPhone() {
+	
+	var value = inputPhone.value;
+	parentPhone.removeChild(toolTip);
+
+	if(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(value)){
+		inputPhone.style.color = 'green';
+	}else{
+		inputPhone.style.color = 'red';
+	};
 
 };
 
-// проверка почты
-inputEmail.onfocus = function() {
 
-	inputEmail.oninput = function() {
+// *** проверка почты
+inputEmail.addEventListener('input', validateEmail, false);
+inputEmail.addEventListener('blur', completedEmail, false);
+
+function validateEmail() {
 
     	var value = inputEmail.value;
     		
@@ -206,13 +246,17 @@ inputEmail.onfocus = function() {
 
   	};
 
-};
-
-inputEmail.onblur = function() {
+function completedEmail() {
 	
 	parentEmail.removeChild(toolTip);
 
 };
+
+
+
+
+
+
 
 
 
