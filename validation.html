@@ -39,13 +39,13 @@
 		<div class="j-form__el j-form__el_phone"><input id="phone" type="tel" name="" placeholder="Ваш телефон"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
 		<div class="j-form__el j-form__el_email req"><input id="email" type="email" name="" placeholder="Ваша почта"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
 		<div class="j-form__el j-form__el_pass req"><input id="password" type="password" name="" placeholder="Введите ваш пароль"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
-		<div class="j-form__el j-form__el_pass req"><input id="password-again" type="password" name="" placeholder="Повторите пароль"></div>
+		<div class="j-form__el j-form__el_pass-again req"><input id="password-again" type="password" name="" placeholder="Повторите пароль"></div>
 		<div class="j-form__el j-form__el_user-type req">
-			<select>
+			<select id="usertype" >
+				<option value="status">Выберете статус</option>
 		  		<option value="client">Заказчик</option>
 		  		<option value="contractor">Исполнитель</option>
 			</select>
-			<i class="fa fa-question-circle-o" aria-hidden="true"></i>
 		</div>
 		<div class="j-form__el j-form__el_specialty" style="display: none;">
 			<select>
@@ -54,9 +54,7 @@
 				<option value="layout-designer">Верстальщик</option>
 		  		<option value="frontend-dev">Front-end разработчик</option>
 		  		<option value="backend-dev">Back-end разработчик</option>
-		  		<option value="other-master">Иное</option>
 			</select>
-			<i class="fa fa-question-circle-o" aria-hidden="true"></i>
 		</div>
 		<div class="j-form__el j-form__el_customer-type" style="display: none;">
 			<select>
@@ -64,15 +62,14 @@
 				<option value="ltd">ООО</option>
 		  		<option value="individual">Физ. лицо</option>
 			</select>
-			<i class="fa fa-question-circle-o" aria-hidden="true"></i>
 		</div>
-		<div class="j-form__el j-form__el_other-spec" style="display: none"><input type="text" name="" placeholder="Введите вашу специальность"><i class="fa fa-question-circle-o" aria-hidden="true"></i></div>
-		<div class="j-form__el"><input type="submit" name="" onclick="" value="Зарегистрироваться"></div>
+		<div class="j-form__el"><input id="btn" type="button" name="" value="Зарегистрироваться"></div>
 
 	</form>
 
 </div>
 
+<div class="hr"></div>
 
 <div class="j-private-office">
 	
@@ -110,244 +107,7 @@
 
 </div>
 
+<script src="js-solutions/validation.form.js"></script>
 
-<script>
-
-	// определяем основные переменные
-	var tips = {
-
-		name 	: '',
-		phone	: 'Введите номер телефона.',
-		email 	: 'Введите валидный адрес электронной почты, например mail@mail.ru.',
-		pass 	: 'Пароль должен состоять из цифр, символов латинского алфавита и быть не менее 8 символов.',
-
-	},
-
-	// имя 
-	inputLogin = document.querySelector('#name'),	 		
-	parentLogin = document.querySelector('.j-form__el_name'),
-
-	// телефон
-	inputPhone = document.querySelector('#phone'),  		
-	parentPhone = document.querySelector('.j-form__el_phone'),
-	
-	// почта
-	inputEmail = document.querySelector('#email'),  
-	parentEmail = document.querySelector('.j-form__el_email'),
-
-	// Пароль
-	inputPass = document.querySelector('#email'),  
-	parentPass = document.querySelector('.j-form__el_pass'),
-
-
-	// создаем контейнеры для подсказок
-	toolTip = document.createElement('span');
-
-
-// *** проверка логина
-inputLogin.addEventListener('input', validateLogin, false);
-inputLogin.addEventListener('blur', completedLogin, false);
-
-function validateLogin() {
-
-    var value = inputLogin.value;
-    		
-    inputLogin.classList.add('j-input_activ-no-valid');
-
-    if(/^[a-zA-Zа-яёА-ЯЁ\s\-]+$/.test(value)){
-
-    	inputLogin.classList.remove('j-input_activ-no-valid');
-		inputLogin.classList.add('j-input_activ-valid');
-
-		toolTip.className = 'j-ttip j-ttip_help j-ttip_br';
-		toolTip.innerHTML = value + ' хорошее Имя Отчество :).';
-
-    }else {
-
-    	toolTip.innerHTML = tips.name + ' ' + value + ' странное имя, попробуйте что-нибудь другое.';
-    	toolTip.className = 'j-ttip j-ttip_critic j-ttip_br';
-		parentLogin.appendChild(toolTip);
-
-    };
-
-  };
-
-function completedLogin(){
-	parentLogin.removeChild(toolTip);
-};
-
-// *** проверка телефона
-inputPhone.addEventListener('input', validatePhone, false);
-inputPhone.addEventListener('blur', completedPhone, false);
-
-function validatePhone() {
-
-    	var value = inputPhone.value;
-    		
-    	inputPhone.classList.add('j-input_activ-no-valid');
-
-    	if(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(value)){
-
-    		inputPhone.classList.remove('j-input_activ-no-valid');
-			inputPhone.classList.add('j-input_activ-valid');
-
-			toolTip.className = 'j-ttip j-ttip_help j-ttip_br';
-			toolTip.innerHTML = value + ' корректный адрес.';
-
-    	}else {
-
-    		toolTip.innerHTML = tips.name + ' ' + value + ' некорректный.';
-    		toolTip.className = 'j-ttip j-ttip_critic j-ttip_br';
-			parentPhone.appendChild(toolTip);
-
-    	};
-
-  	};
-
-function completedPhone() {
-	
-	var value = inputPhone.value;
-	parentPhone.removeChild(toolTip);
-
-	if(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(value)){
-		inputPhone.style.color = 'green';
-	}else{
-		inputPhone.style.color = 'red';
-	};
-
-};
-
-
-// *** проверка почты
-inputEmail.addEventListener('input', validateEmail, false);
-inputEmail.addEventListener('blur', completedEmail, false);
-
-function validateEmail() {
-
-    	var value = inputEmail.value;
-    		
-    	inputEmail.classList.add('j-input_activ-no-valid');
-
-    	if(/.+@.+\..+/i.test(value)){
-
-    		inputEmail.classList.remove('j-input_activ-no-valid');
-			inputEmail.classList.add('j-input_activ-valid');
-
-			toolTip.className = 'j-ttip j-ttip_help j-ttip_br';
-			toolTip.innerHTML = value + ' корректный адрес.';
-
-    	}else {
-
-    		toolTip.innerHTML = tips.name + ' ' + value + ' некорректный.';
-    		toolTip.className = 'j-ttip j-ttip_critic j-ttip_br';
-			parentEmail.appendChild(toolTip);
-
-    	};
-
-  	};
-
-function completedEmail() {
-	
-	parentEmail.removeChild(toolTip);
-
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var temp = true;
-// проверка номера телефона: ^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$
-// проверка email: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
-// или так: /.+@.+\..+/i
-// проверка на имя отчество /^[a-zA-Zа-яёА-ЯЁ\s\-]+$/ 
-
-
-
-
-
-
-
-</script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
- <script>
-
-    function showError(container, errorMessage) {
-      container.className = 'error';
-      var msgElem = document.createElement('span');
-      msgElem.className = "error-message";
-      msgElem.innerHTML = errorMessage;
-      container.appendChild(msgElem);
-    }
-
-    function resetError(container) {
-      container.className = '';
-      if (container.lastChild.className == "error-message") {
-        container.removeChild(container.lastChild);
-      }
-    }
-
-    function validate(form) {
-    	
-      var elems = form.elements;
-
-      resetError(elems.from.parentNode);
-      if (!elems.from.value) {
-        showError(elems.from.parentNode, ' Укажите от кого.');
-      }
-
-      resetError(elems.password.parentNode);
-
-      if (!elems.password.value) {
-        showError(elems.password.parentNode, ' Укажите пароль.');
-      } else if (elems.password.value != elems.password2.value) {
-        showError(elems.password.parentNode, ' Пароли не совпадают.');
-      }
-
-      resetError(elems.to.parentNode);
-      if (!elems.to.value) {
-        showError(elems.to.parentNode, ' Укажите, куда.');
-      }
-
-      resetError(elems.message.parentNode);
-      if (!elems.message.value) {
-        showError(elems.message.parentNode, ' Отсутствует текст.');
-      }
-
-    }
-  </script>
-
-<!-- проверка на
-<input type="text"> oninput: <span id="result"></span>
-<script>
-  var input = document.body.children[0];
-
-  input.oninput = function() {
-    document.getElementById('result').innerHTML = input.value;
-  };
-</script>
- -->
 </body>
 </html>

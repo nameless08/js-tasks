@@ -35,7 +35,6 @@ body {
 	max-width: 600px;
 	position: relative;
 	
-	outline: 1px solid #000;
 	
 }
 
@@ -188,4 +187,33 @@ body {
 
 .j-ttip_info {
 	
+}
+.hr {
+	margin-top: 150px;
+	background-color: #232323;
+	height: 50px;
+	width: 100%;
+
+}
+
+/* Стили офиса */
+
+.j-private-office {
+		
+	margin: 150px auto 0 auto;	
+	width: 600px;
+	
+}
+
+.error-message {
+	
+	position: absolute;
+
+	display: block;
+	color: red;
+	
+	top: 42px;
+	left: 0;
+	width: 100%;	
+
 }
