@@ -105,14 +105,14 @@ function flyCompleted(el){
 buttonSignUp.addEventListener('click', validationAll, false);
 
 function validationAll(){
-alert('Проверка пошла!');
 
-	if(!formElLogin){
+	if(formElLogin){
 		
-		alert('Проверка прошла!');
 		document.querySelector('.j-data-login>span').innerHTML = inputLogin.value;
 
 	}else{
+
+		alert('Не прошла проверка!');
 
 		if(formElLogin){
 			showError(inputLogin.parentNode, 'Введите, пожалуйста, Ваше имя.');
@@ -120,7 +120,6 @@ alert('Проверка пошла!');
 		
 	};
 
-	alert(formElLogin);
 
 	function showError(container, errorMsg){
 
