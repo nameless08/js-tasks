@@ -72,6 +72,8 @@ function flyValidation(el, filter, cMsg, wMsg, condition) {
 
 	var	value = el.value;
 
+	alert(candit);
+
     el.classList.add('j-input_activ-no-valid');
     el.parentNode.appendChild(toolTip); // закладываем в родитель подсказку
 
