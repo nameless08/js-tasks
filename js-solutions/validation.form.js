@@ -55,7 +55,7 @@
 
 
 // *** проверка логина
-inputLogin.addEventListener('input', function(){flyValidation(inputLogin, regLogin, ' - это хорошее имя :) ', ' - это странное имя, попробуйте еще раз', formElLogin)}, false);
+inputLogin.addEventListener('input', function(){flyValidation(inputLogin, regLogin, ' - это хорошее имя :) ', ' - это странное имя, попробуйте еще раз', 'name')}, false);
 inputLogin.addEventListener('blur', function(){flyCompleted(inputLogin)}, false);
 
 // *** проверка почты
@@ -72,8 +72,6 @@ function flyValidation(el, filter, cMsg, wMsg, condition) {
 
 	var	value = el.value;
 
-	alert(candit);
-
     el.classList.add('j-input_activ-no-valid');
     el.parentNode.appendChild(toolTip); // закладываем в родитель подсказку
 
@@ -85,7 +83,28 @@ function flyValidation(el, filter, cMsg, wMsg, condition) {
 		toolTip.className = 'j-ttip j-ttip_help j-ttip_br';
 		toolTip.innerHTML = value + ' ' + cMsg;
 
-		condition = true;
+
+		switch(condition) {
+
+			case 'name' :  formEl.login = true;
+			break;
+
+			case 'phone' : formEl.phone = true;
+			break;
+
+			case 'email' : formEl.email = true;
+			break;
+
+			case 'pass' : formEl.pass = true;
+			break;
+
+			case 'passAgain' : formEl.passAgain = true;
+			break;
+
+			case 'userType' : formEl.userType = true;
+			break;
+
+		};
 
     }else {
 
@@ -93,6 +112,28 @@ function flyValidation(el, filter, cMsg, wMsg, condition) {
     	toolTip.innerHTML = tips.name + ' ' + value + ' ' + wMsg;
     	toolTip.className = 'j-ttip j-ttip_critic j-ttip_br';
 		el.parentNode.appendChild(toolTip);
+
+		switch(condition) {
+
+			case 'name' :  formEl.login = false;
+			break;
+
+			case 'phone' : formEl.phone = false;
+			break;
+
+			case 'email' : formEl.email = false;
+			break;
+
+			case 'pass' : formEl.pass = false;
+			break;
+
+			case 'passAgain' : formEl.passAgain = false;
+			break;
+
+			case 'userType' : formEl.userType = false;
+			break;
+
+		};
 
     };
 };
@@ -108,7 +149,8 @@ buttonSignUp.addEventListener('click', validationAll, false);
 
 function validationAll(){
 
-	if(formElLogin){
+	if(formEl.login){
+		
 		
 		document.querySelector('.j-data-login>span').innerHTML = inputLogin.value;
 
@@ -116,7 +158,7 @@ function validationAll(){
 
 		alert('Не прошла проверка!');
 
-		if(formElLogin){
+		if(!formEl.login){
 			showError(inputLogin.parentNode, 'Введите, пожалуйста, Ваше имя.');
 		};
 		
